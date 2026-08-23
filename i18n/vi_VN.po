@@ -9,16 +9,253 @@ msgstr ""
 "POT-Creation-Date: 2026-08-23 00:00+0000\n"
 "PO-Revision-Date: 2026-08-23 00:00+0000\n"
 "Last-Translator: \n"
-"Language-Team: \n"
+"Language-Team: Vietnamese\n"
+"Language: vi_VN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: isd_photobooth
+#: model:ir.model,name:isd_photobooth.model_isd_photobooth
+msgid "Photo Booth"
+msgstr "Photo Booth"
+
+#. module: isd_photobooth
+#: model:ir.model,name:isd_photobooth.model_isd_photobooth_group
+msgid "Photo Booth Group / Location"
+msgstr "Nhóm / Địa điểm Photo Booth"
+
+#. module: isd_photobooth
+#: model:ir.model,name:isd_photobooth.model_isd_photobooth_layout
+msgid "Photo Booth Layout"
+msgstr "Bố cục Photo Booth"
+
+#. module: isd_photobooth
+#: model:ir.model,name:isd_photobooth.model_isd_photobooth_layout_theme
+msgid "Photo Booth Layout Theme"
+msgstr "Chủ đề bố cục Photo Booth"
+
+#. module: isd_photobooth
+#: model:ir.model,name:isd_photobooth.model_isd_photobooth_layout_system_type
+msgid "Photo Booth Layout System Type (Print Config)"
+msgstr "Loại hệ thống bố cục Photo Booth (Cấu hình in)"
+
+#. module: isd_photobooth
+#: model:ir.model,name:isd_photobooth.model_isd_photobooth_layout_system
+msgid "Photo Booth Layout System Item"
+msgstr "Mục hệ thống bố cục Photo Booth"
+
+#. module: isd_photobooth
+#: model:ir.model,name:isd_photobooth.model_isd_photobooth_theme
+msgid "Photo Booth Theme"
+msgstr "Chủ đề Photo Booth"
+
+#. module: isd_photobooth
+#: model:ir.model,name:isd_photobooth.model_isd_photobooth_background
+msgid "Photo Booth Background Layout"
+msgstr "Hình nền Photo Booth"
+
+#. module: isd_photobooth
+#: model:ir.model,name:isd_photobooth.model_isd_photobooth_transaction
+msgid "Photo Booth Transaction"
+msgstr "Giao dịch Photo Booth"
+
+#. module: isd_photobooth
+#: model:ir.model,name:isd_photobooth.model_isd_photobooth_promotion
+msgid "Photo Booth Promotion"
+msgstr "Khuyến mãi Photo Booth"
+
+#. module: isd_photobooth
+#: model:ir.model,name:isd_photobooth.model_isd_photobooth_promo_code
+msgid "Photo Booth Promo Code"
+msgstr "Mã khuyến mãi Photo Booth"
+
+#. module: isd_photobooth
+#: model:ir.model,name:isd_photobooth.model_isd_photobooth_ticket
+msgid "Photobooth Support Ticket"
+msgstr "Phiếu hỗ trợ Photobooth"
+
+#. module: isd_photobooth
+#: model:ir.model,name:isd_photobooth.model_isd_photobooth_audit_log
+msgid "Photobooth Audit Log"
+msgstr "Nhật ký kiểm tra Photobooth"
+
+#. module: isd_photobooth
+#: model:ir.model,name:isd_photobooth.model_isd_photobooth_app_version
+msgid "Photobooth App Version"
+msgstr "Phiên bản ứng dụng Photobooth"
+
+#. module: isd_photobooth
+#: model:ir.module.category,name:isd_photobooth.module_category_isd_photobooth
+msgid "ISD PhotoBooth"
+msgstr "ISD PhotoBooth"
+
+#. module: isd_photobooth
+#: model:res.groups,name:isd_photobooth.group_isd_photobooth_staff
+msgid "Staff"
+msgstr "Nhân viên"
+
+#. module: isd_photobooth
+#: model:res.groups,name:isd_photobooth.group_isd_photobooth_franchise
+msgid "Franchise"
+msgstr "Đại lý"
+
+#. module: isd_photobooth
+#: model:res.groups,name:isd_photobooth.group_isd_photobooth_super_admin
+msgid "Super Admin"
+msgstr "Quản trị viên cao cấp"
+
+#. module: isd_photobooth
+#: model:ir.rule,name:isd_photobooth.rule_photobooth_super_admin
+msgid "PhotoBooth: Super Admin - All"
+msgstr "PhotoBooth: Quản trị viên cao cấp - Tất cả"
+
+#. module: isd_photobooth
+#: model:ir.rule,name:isd_photobooth.rule_photobooth_group_super_admin
+msgid "PhotoBooth Group: Super Admin - All"
+msgstr "Nhóm PhotoBooth: Quản trị viên cao cấp - Tất cả"
+
+#. module: isd_photobooth
+#: model:ir.rule,name:isd_photobooth.rule_photobooth_layout_super_admin
+msgid "PhotoBooth Layout: Super Admin - All"
+msgstr "Bố cục PhotoBooth: Quản trị viên cao cấp - Tất cả"
+
+#. module: isd_photobooth
+#: model:ir.rule,name:isd_photobooth.rule_photobooth_franchise
+msgid "PhotoBooth: Franchise/Staff - Own Groups"
+msgstr "PhotoBooth: Đại lý/Nhân viên - Nhóm được quản lý"
+
+#. module: isd_photobooth
+#: model:ir.rule,name:isd_photobooth.rule_photobooth_group_franchise
+msgid "PhotoBooth Group: Franchise/Staff - Own Groups"
+msgstr "Nhóm PhotoBooth: Đại lý/Nhân viên - Nhóm được quản lý"
+
+#. module: isd_photobooth
+#: model:ir.rule,name:isd_photobooth.rule_photobooth_layout_all
+msgid "PhotoBooth Layout: All Users"
+msgstr "Bố cục PhotoBooth: Tất cả người dùng"
+
+#. module: isd_photobooth
+#: model:ir.rule,name:isd_photobooth.rule_photobooth_theme_all
+msgid "PhotoBooth Theme: All Users"
+msgstr "Chủ đề PhotoBooth: Tất cả người dùng"
+
+#. module: isd_photobooth
+#: model:ir.rule,name:isd_photobooth.rule_photobooth_background_all
+msgid "PhotoBooth Background: All Users"
+msgstr "Hình nền PhotoBooth: Tất cả người dùng"
+
+#. module: isd_photobooth
+#: model:ir.rule,name:isd_photobooth.rule_photobooth_layout_system_type_all
+msgid "PhotoBooth Layout System Type: All Users"
+msgstr "Loại hệ thống bố cục PhotoBooth: Tất cả người dùng"
+
+#. module: isd_photobooth
+#: model:ir.rule,name:isd_photobooth.rule_photobooth_layout_system_all
+msgid "PhotoBooth Layout System: All Users"
+msgstr "Hệ thống bố cục PhotoBooth: Tất cả người dùng"
+
+#. module: isd_photobooth
+#: model:ir.rule,name:isd_photobooth.rule_photobooth_layout_theme_all
+msgid "PhotoBooth Layout Theme: All Users"
+msgstr "Chủ đề bố cục PhotoBooth: Tất cả người dùng"
+
+#. module: isd_photobooth
+#: model:ir.rule,name:isd_photobooth.rule_photobooth_transaction_super_admin
+msgid "PhotoBooth Transaction: Super Admin - All"
+msgstr "Giao dịch PhotoBooth: Quản trị viên cao cấp - Tất cả"
+
+#. module: isd_photobooth
+#: model:ir.rule,name:isd_photobooth.rule_photobooth_transaction_franchise
+msgid "PhotoBooth Transaction: Franchise/Staff - Own Groups"
+msgstr "Giao dịch PhotoBooth: Đại lý/Nhân viên - Nhóm được quản lý"
+
+#. module: isd_photobooth
+#: model:ir.rule,name:isd_photobooth.rule_photobooth_promotion_all
+msgid "PhotoBooth Promotion: All Users"
+msgstr "Khuyến mãi PhotoBooth: Tất cả người dùng"
+
+#. module: isd_photobooth
+#: model:ir.rule,name:isd_photobooth.rule_photobooth_promo_code_all
+msgid "PhotoBooth Promo Code: All Users"
+msgstr "Mã khuyến mãi PhotoBooth: Tất cả người dùng"
+
+#. module: isd_photobooth
+#: model:ir.rule,name:isd_photobooth.rule_photobooth_audit_log_all
+msgid "PhotoBooth Audit Log: Super Admin"
+msgstr "Nhật ký PhotoBooth: Quản trị viên cao cấp"
+
+#. module: isd_photobooth
+#: model:ir.rule,name:isd_photobooth.rule_photobooth_ticket_all
+msgid "PhotoBooth Ticket: All Users"
+msgstr "Phiếu hỗ trợ PhotoBooth: Tất cả người dùng"
+
+#. module: isd_photobooth
+#: model:ir.rule,name:isd_photobooth.rule_photobooth_app_version_all
+msgid "PhotoBooth App Version: All Users"
+msgstr "Phiên bản ứng dụng PhotoBooth: Tất cả người dùng"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__name
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_group__name
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout__name
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_theme__name
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_system_type__name
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_system__name
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_promotion__name
+msgid "Name"
+msgstr "Tên"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__code
+msgid "Code"
+msgstr "Mã"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__status
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_transaction__status
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_promotion__status
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_promo_code__status
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_ticket__status
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_app_version__status
+msgid "Status"
+msgstr "Trạng thái"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__payment_method
+msgid "Payment Methods"
+msgstr "Phương thức thanh toán"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__download_media_type
+msgid "Download Media Types"
+msgstr "Loại phương tiện tải về"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__max_prints
+msgid "Max Prints"
+msgstr "Số lần in tối đa"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__printer_paper_count
+msgid "Printer Paper Count"
+msgstr "Số giấy in"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__hardware_health_data
+msgid "Hardware Health"
+msgstr "Tình trạng phần cứng"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__last_meta_updated_at
+msgid "Last Meta Updated"
+msgstr "Cập nhật meta lần cuối"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_is_display_layout_description
 msgid "Display Layout Description"
-msgstr "Hiển thị mô tả của bố cục"
+msgstr "Hiển thị mô tả bố cục"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_payment_method_id
@@ -31,8 +268,6 @@ msgid "Branch"
 msgstr "Phân loại chi nhánh"
 
 #. module: isd_photobooth
-#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_color_button
-#. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_title_font_color
 msgid "Title Font Color"
 msgstr "Màu chữ tiêu đề"
@@ -40,12 +275,12 @@ msgstr "Màu chữ tiêu đề"
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_color_button
 msgid "Button Text Color"
-msgstr "Màu chữ button"
+msgstr "Màu chữ nút"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_button
 msgid "Button Background Color"
-msgstr "Màu nền button"
+msgstr "Màu nền nút"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_btn_back
@@ -55,47 +290,47 @@ msgstr "Icon nút quay lại"
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_main
 msgid "Home Screen BG"
-msgstr "Màn hình trang chủ"
+msgstr "Hình nền trang chủ"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_layout
 msgid "Layout Screen BG"
-msgstr "Màn hình trang bố cục"
+msgstr "Hình nền trang bố cục"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_theme
 msgid "Theme Screen BG"
-msgstr "Màn hình trang chủ đề"
+msgstr "Hình nền trang chủ đề"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_is_hide_label_theme
 msgid "Hide Theme Labels"
-msgstr "Ẩn nhãn của các khối chủ đề"
+msgstr "Ẩn nhãn chủ đề"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_cell_theme_font_color
 msgid "Theme Cell Font Color"
-msgstr "Màu chữ khung hình của chủ đề"
+msgstr "Màu chữ khung chủ đề"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_frame
 msgid "Frame Screen BG"
-msgstr "Màn hình trang khung hình"
+msgstr "Hình nền trang khung hình"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_btn_prev
 msgid "Previous Button Icon"
-msgstr "Icon Click qua trái"
+msgstr "Icon nút trước"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_btn_next
 msgid "Next Button Icon"
-msgstr "Icon Click qua phải"
+msgstr "Icon nút tiếp"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_quantity
 msgid "Quantity Screen BG"
-msgstr "Màn hình trang số lượng"
+msgstr "Hình nền trang số lượng"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_icon_arrow_left
@@ -105,12 +340,12 @@ msgstr "Icon mũi tên phải"
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_payment
 msgid "Payment Screen BG"
-msgstr "Màn hình trang thanh toán"
+msgstr "Hình nền trang thanh toán"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_payment_notice
 msgid "Payment Notice Screen BG"
-msgstr "Màn hình thông báo trước thanh toán"
+msgstr "Hình nền thông báo thanh toán"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_content_payment_notice
@@ -120,7 +355,7 @@ msgstr "Nội dung thông báo thanh toán"
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_camera_mode
 msgid "Camera Mode Screen BG"
-msgstr "Màn hình chọn mode chụp hình"
+msgstr "Hình nền chọn chế độ chụp"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_icon_auto_capture
@@ -130,62 +365,62 @@ msgstr "Icon chụp tự động"
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_icon_remote_capture
 msgid "Remote Capture Icon"
-msgstr "Icon chụp remote"
+msgstr "Icon chụp từ xa"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_frame_horizontal
 msgid "Horizontal Capture BG"
-msgstr "Màn hình chụp hình ngang"
+msgstr "Hình nền chụp ngang"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_frame_vertical
 msgid "Vertical Capture BG"
-msgstr "Màn hình chụp hình dọc"
+msgstr "Hình nền chụp dọc"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_camera_label_time
 msgid "Camera Time Label"
-msgstr "Nhãn Thời gian ở màn hình chụp"
+msgstr "Nhãn thời gian chụp"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_camera_label_quantity
 msgid "Camera Quantity Label"
-msgstr "Nhãn Số Lượng ở màn hình chụp"
+msgstr "Nhãn số lượng chụp"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_frame_square
 msgid "Square Capture BG"
-msgstr "Màn hình chụp khung hình vuông"
+msgstr "Hình nền chụp vuông"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_preview_horizontal
 msgid "Horizontal Preview BG"
-msgstr "Màn hình trang chọn hình ảnh ngang"
+msgstr "Hình nền xem trước ngang"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_preview_vertical
 msgid "Vertical Preview BG"
-msgstr "Màn hình trang chọn hình ảnh dọc"
+msgstr "Hình nền xem trước dọc"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_print
 msgid "Print Screen BG"
-msgstr "Màn hình trang in"
+msgstr "Hình nền trang in"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_btn_home
 msgid "Home Button Icon"
-msgstr "Icon về trang chủ"
+msgstr "Icon nút trang chủ"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_popup
 msgid "Popup BG"
-msgstr "Màn hình popup"
+msgstr "Hình nền popup"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_ads
 msgid "Ads Screen BG"
-msgstr "Màn hình quảng cáo"
+msgstr "Hình nền quảng cáo"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_url_ads
@@ -193,19 +428,768 @@ msgid "Advertisement URL"
 msgstr "URL quảng cáo"
 
 #. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__config_photo_app
+msgid "App Configuration"
+msgstr "Cấu hình ứng dụng"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__group_id
+msgid "Group / Location"
+msgstr "Nhóm / Địa điểm"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__layout_ids
 #: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
-msgid "Layout &amp; Theme Settings"
-msgstr "Cài đặt bố cục và chủ đề"
+#: model:ir.actions.act_window,name:isd_photobooth.action_isd_photobooth_layout
+#: model:ir.ui.menu,name:isd_photobooth.menu_isd_photobooth_layouts
+msgid "Layouts"
+msgstr "Bố cục"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__theme_ids
+msgid "Themes"
+msgstr "Chủ đề"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__layout_system_type_ids
+msgid "Layout System Types"
+msgstr "Loại hệ thống bố cục"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__active
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_group__active
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout__active
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_background__active
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_theme__active
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_transaction__active
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_promotion__active
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_promo_code__active
+msgid "Active"
+msgstr "Hoạt động"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__deleted_at
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_group__deleted_at
+msgid "Deleted At"
+msgstr "Đã xóa lúc"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth__status__not_yet
+msgid "Not Yet"
+msgstr "Chưa cài đặt"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth__status__installed
+msgid "Installed"
+msgstr "Đã cài đặt"
+
+#. module: isd_photobooth
+#: model:ir.model.constraint,message:isd_photobooth.constraint_isd_photobooth__unique_code
+msgid "Photo Booth code must be unique."
+msgstr "Mã Photo Booth phải là duy nhất."
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout__description
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_ticket__description
+msgid "Description"
+msgstr "Mô tả"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout__price
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_transaction__price
+msgid "Price"
+msgstr "Giá"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout__image
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_background__image
+msgid "Image"
+msgstr "Hình ảnh"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout__image_filename
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_background__image_filename
+msgid "Image Filename"
+msgstr "Tên tệp hình ảnh"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout__image_url
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_background__image_url
+msgid "Image URL"
+msgstr "URL hình ảnh"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout__frame_type
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_background__frame_type
+msgid "Frame Type"
+msgstr "Loại khung"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout__layout_type
+msgid "Layout Type"
+msgstr "Loại bố cục"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout__bg_color
+msgid "Background Colors"
+msgstr "Màu nền"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout__paper_size
+msgid "Paper Size"
+msgstr "Khổ giấy"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout__bg_layout_ids
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_theme__bg_layout_ids
+msgid "Background Layouts"
+msgstr "Hình nền bố cục"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout__layout_theme_ids
+msgid "Layout Themes"
+msgstr "Chủ đề bố cục"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_layout__frame_type__3_2
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_background__frame_type__3_2
+msgid "3:2"
+msgstr "3:2"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_layout__frame_type__2_3
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_background__frame_type__2_3
+msgid "2:3"
+msgstr "2:3"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_layout__frame_type__1_1
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_background__frame_type__1_1
+msgid "1:1"
+msgstr "1:1"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_layout__layout_type__2x2h
+msgid "2x2 Horizontal"
+msgstr "2x2 Ngang"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_layout__layout_type__2x2v
+msgid "2x2 Vertical"
+msgstr "2x2 Dọc"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_layout__layout_type__1x4h
+msgid "1x4 Horizontal"
+msgstr "1x4 Ngang"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_layout__layout_type__3x1h
+msgid "3x1 Horizontal"
+msgstr "3x1 Ngang"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_layout__layout_type__2x4h
+msgid "2x4 Horizontal"
+msgstr "2x4 Ngang"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_layout__layout_type__1vs3h
+msgid "1vs3 Horizontal"
+msgstr "1vs3 Ngang"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_layout__layout_type__1x1v
+msgid "1x1 Vertical"
+msgstr "1x1 Dọc"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_layout__layout_type__1x2v
+msgid "1x2 Vertical"
+msgstr "1x2 Dọc"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_layout__layout_type__2x3square
+msgid "2x3 Square"
+msgstr "2x3 Vuông"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_layout__layout_type__1x3square
+msgid "1x3 Square"
+msgstr "1x3 Vuông"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_layout__paper_size__6x4
+msgid "6x4 (152mm x 102mm)"
+msgstr "6x4 (152mm x 102mm)"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_layout__paper_size__4x6
+msgid "4x6 (102mm x 152mm)"
+msgstr "4x6 (102mm x 152mm)"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_layout__paper_size__6x2
+msgid "6x2 (152mm x 51mm)"
+msgstr "6x2 (152mm x 51mm)"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_layout__paper_size__2x6
+msgid "2x6 (51mm x 152mm)"
+msgstr "2x6 (51mm x 152mm)"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_group__address
+msgid "Address"
+msgstr "Địa chỉ"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_group__managed_user_ids
+msgid "Managed Users"
+msgstr "Người dùng quản lý"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_group__photobooth_ids
+msgid "Photo Booths"
+msgstr "Photo Booths"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_group__photobooth_count
+msgid "Booth Count"
+msgstr "Số booth"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_theme__background
+msgid "Background"
+msgstr "Hình nền"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_theme__background_filename
+msgid "Background Filename"
+msgstr "Tên tệp hình nền"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_theme__background_url
+msgid "Background URL"
+msgstr "URL hình nền"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_transaction__transaction_id
+msgid "Transaction ID"
+msgstr "Mã giao dịch"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_transaction__photo_app_id
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_ticket__photobooth_id
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_system_type__photobooth_id
+msgid "Photo Booth"
+msgstr "Photo Booth"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_transaction__layout_id
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_theme__layout_id
+msgid "Layout"
+msgstr "Bố cục"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_transaction__real_price
+msgid "Real Price"
+msgstr "Giá thực nhận"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_transaction__quantity
+msgid "Quantity"
+msgstr "Số lượng"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_transaction__date
+msgid "Date"
+msgstr "Ngày"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_transaction__payment_provider
+msgid "Payment Provider"
+msgstr "Nhà cung cấp thanh toán"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_transaction__medias
+msgid "Medias"
+msgstr "Phương tiện"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_transaction__medias_expired_at
+msgid "Medias Expired At"
+msgstr "Phương tiện hết hạn lúc"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_transaction__promotion_code
+msgid "Promotion Code"
+msgstr "Mã khuyến mãi"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_transaction__promo_code_id
+msgid "Promo Code"
+msgstr "Mã khuyến mãi"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_transaction__deleted_on
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_promotion__deleted_on
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_promo_code__deleted_on
+msgid "Deleted On"
+msgstr "Đã xóa lúc"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_transaction__group_id
+msgid "Group"
+msgstr "Nhóm"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_transaction__status__draft
+msgid "Draft"
+msgstr "Nháp"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_transaction__payment_provider__cash
+msgid "Cash"
+msgstr "Tiền mặt"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_transaction__payment_provider__free
+msgid "Free"
+msgstr "Miễn phí"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_transaction__payment_provider__topup
+msgid "Top Up"
+msgstr "Nạp tiền"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_transaction__payment_provider__transfer
+msgid "Transfer"
+msgstr "Chuyển khoản"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_transaction__payment_provider__fix
+msgid "Fix"
+msgstr "Sửa lỗi"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_transaction__payment_provider__promotion
+msgid "Promotion"
+msgstr "Khuyến mãi"
+
+#. module: isd_photobooth
+#: model:ir.model.constraint,message:isd_photobooth.constraint_isd_photobooth_transaction__unique_transaction_id
+msgid "Transaction ID must be unique."
+msgstr "Mã giao dịch phải là duy nhất."
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_promotion__type
+msgid "Type"
+msgstr "Loại"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_promotion__num_of_codes
+msgid "Number of Codes"
+msgstr "Số lượng mã"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_promotion__used_count
+msgid "Used Count"
+msgstr "Số lần sử dụng"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_promotion__amount_off
+msgid "Amount Off"
+msgstr "Giảm giá cố định"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_promotion__percent_off
+msgid "Percent Off"
+msgstr "Giảm giá phần trăm"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_promotion__start_date
+msgid "Start Date"
+msgstr "Ngày bắt đầu"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_promotion__end_date
+msgid "End Date"
+msgstr "Ngày kết thúc"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_promotion__group_ids
+msgid "Applicable Groups"
+msgstr "Nhóm áp dụng"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_promotion__promo_code_ids
+msgid "Promo Codes"
+msgstr "Mã khuyến mãi"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_promotion__promo_code_count
+msgid "Promo Code Count"
+msgstr "Số mã khuyến mãi"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_promotion__type__voucher
+msgid "Voucher"
+msgstr "Voucher"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_promotion__type__coupon
+msgid "Coupon"
+msgstr "Coupon"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_promotion__status__active
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_transaction__status__active
+msgid "Active"
+msgstr "Hoạt động"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_promotion__status__deactive
+msgid "Deactive"
+msgstr "Ngưng hoạt động"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_promo_code__code
+msgid "Code"
+msgstr "Mã"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_promo_code__promotion_id
+msgid "Promotion"
+msgstr "Khuyến mãi"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_promo_code__used_time
+msgid "Used Time"
+msgstr "Thời gian sử dụng"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_promo_code__status__used
+msgid "Used"
+msgstr "Đã sử dụng"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_promo_code__status__unused
+msgid "Unused"
+msgstr "Chưa sử dụng"
+
+#. module: isd_photobooth
+#: model:ir.model.constraint,message:isd_photobooth.constraint_isd_photobooth_promo_code__unique_code
+msgid "Promo code must be unique."
+msgstr "Mã khuyến mãi phải là duy nhất."
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_ticket__subject
+msgid "Subject"
+msgstr "Tiêu đề"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_ticket__image_ids
+msgid "Images"
+msgstr "Hình ảnh"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_ticket__created_by_id
+msgid "Created By"
+msgstr "Người tạo"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_ticket__assigned_to_id
+msgid "Assigned To"
+msgstr "Giao cho"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_ticket__status__created
+msgid "Created"
+msgstr "Đã tạo"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_ticket__status__received
+msgid "Received"
+msgstr "Đã nhận"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_ticket__status__in_progress
+msgid "In Progress"
+msgstr "Đang xử lý"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_ticket__status__responded
+msgid "Responded"
+msgstr "Đã phản hồi"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_ticket__status__completed
+msgid "Completed"
+msgstr "Hoàn thành"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_audit_log__model_name
+msgid "Model Name"
+msgstr "Tên model"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_audit_log__model_id
+msgid "Record ID"
+msgstr "ID bản ghi"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_audit_log__action
+msgid "Action"
+msgstr "Hành động"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_audit_log__user_id
+msgid "User"
+msgstr "Người dùng"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_audit_log__timestamp
+msgid "Timestamp"
+msgstr "Thời gian"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_audit_log__data
+msgid "Data"
+msgstr "Dữ liệu"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_audit_log__source
+msgid "Source"
+msgstr "Nguồn"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_audit_log__summary
+msgid "Summary"
+msgstr "Tóm tắt"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_audit_log__action__create
+msgid "Create"
+msgstr "Tạo"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_audit_log__action__update
+msgid "Update"
+msgstr "Cập nhật"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_audit_log__action__delete
+msgid "Delete"
+msgstr "Xóa"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_audit_log__source__portal
+msgid "Portal"
+msgstr "Cổng"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_audit_log__source__photobooth
+msgid "Photobooth"
+msgstr "Photobooth"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_app_version__version
+msgid "Version"
+msgstr "Phiên bản"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_app_version__package_url
+msgid "Package URL"
+msgstr "URL gói cài đặt"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_app_version__notes
+msgid "Notes"
+msgstr "Ghi chú"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_app_version__status__enabled
+msgid "Enabled"
+msgstr "Đã bật"
+
+#. module: isd_photobooth
+#: model:ir.model.fields.selection,name:isd_photobooth.selection__isd_photobooth_app_version__status__disabled
+msgid "Disabled"
+msgstr "Đã tắt"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_system_type__is_cut
+msgid "Is Cut"
+msgstr "Có cắt"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_system_type__is_landscape
+msgid "Is Landscape"
+msgstr "Ngang"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_system_type__print_height
+msgid "Print Height"
+msgstr "Chiều cao in"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_system_type__print_width
+msgid "Print Width"
+msgstr "Chiều rộng in"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_system_type__actual_height
+msgid "Actual Height"
+msgstr "Chiều cao thực"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_system_type__actual_width
+msgid "Actual Width"
+msgstr "Chiều rộng thực"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_system_type__viewbox_width
+msgid "ViewBox Width"
+msgstr "Chiều rộng ViewBox"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_system_type__viewbox_height
+msgid "ViewBox Height"
+msgstr "Chiều cao ViewBox"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_system_type__dpi
+msgid "DPI"
+msgstr "DPI"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_system_type__print_top
+msgid "Margin Top"
+msgstr "Lề trên"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_system_type__print_left
+msgid "Margin Left"
+msgstr "Lề trái"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_system_type__print_bottom
+msgid "Margin Bottom"
+msgstr "Lề dưới"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_system_type__print_right
+msgid "Margin Right"
+msgstr "Lề phải"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_system_type__layout_system_ids
+msgid "Layout Items"
+msgstr "Mục bố cục"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_system__layout_system_type_id
+msgid "Layout System Type"
+msgstr "Loại hệ thống bố cục"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_system__sequence
+msgid "Sequence"
+msgstr "Thứ tự"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_system__x
+msgid "X Position"
+msgstr "Vị trí X"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_system__y
+msgid "Y Position"
+msgstr "Vị trí Y"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_system__width
+msgid "Width"
+msgstr "Chiều rộng"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_system__height
+msgid "Height"
+msgstr "Chiều cao"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_system__is_qr
+msgid "Is QR Code"
+msgstr "Là mã QR"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth_layout_theme__theme_id
+msgid "Theme"
+msgstr "Chủ đề"
+
+#. module: isd_photobooth
+#: model:ir.model.constraint,message:isd_photobooth.constraint_isd_photobooth_layout_theme__unique_theme_layout
+msgid "Theme + Layout combination must be unique."
+msgstr "Tổ hợp chủ đề + bố cục phải là duy nhất."
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
+msgid "Install"
+msgstr "Cài đặt"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_layout_form
+msgid "Clone"
+msgstr "Nhân bản"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
+msgid "Initialize Default Layouts"
+msgstr "Khởi tạo bố cục mặc định"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
+msgid "Reset Printer Count"
+msgstr "Đặt lại số giấy in"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_transaction_form
+msgid "General"
+msgstr "Tổng quát"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
+msgid "Payment &amp; Download"
+msgstr "Thanh toán &amp; Tải về"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
+msgid "Print Config"
+msgstr "Cấu hình in"
 
 #. module: isd_photobooth
 #: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
 msgid "Bank Config"
-msgstr "Ngân hàng"
+msgstr "Cấu hình ngân hàng"
 
 #. module: isd_photobooth
 #: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
 msgid "Bank Customization"
 msgstr "Tùy chỉnh ngân hàng"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
+msgid "App Config"
+msgstr "Cấu hình ứng dụng"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
+msgid "Layout &amp; Theme Settings"
+msgstr "Cài đặt bố cục &amp; chủ đề"
 
 #. module: isd_photobooth
 #: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
@@ -216,3 +1200,449 @@ msgstr "Tùy chỉnh giao diện"
 #: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
 msgid "UI Images"
 msgstr "Hình ảnh giao diện"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
+msgid "Hardware"
+msgstr "Phần cứng"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
+msgid "Mark this booth as installed?"
+msgstr "Đánh dấu booth này đã cài đặt?"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
+msgid "This will create 10 default layout system types. Continue?"
+msgstr "Thao tác này sẽ tạo 10 loại hệ thống bố cục mặc định. Tiếp tục?"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
+msgid "Reset printer paper count to 0?"
+msgstr "Đặt lại số giấy in về 0?"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_list
+msgid "Photo Booths"
+msgstr "Photo Booths"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_list
+msgid "Paper"
+msgstr "Giấy"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_search
+msgid "Search Photo Booths"
+msgstr "Tìm kiếm Photo Booths"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_search
+msgid "Not Installed"
+msgstr "Chưa cài đặt"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_search
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_layout_search
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_group_search
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_theme_search
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_transaction_search
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_promotion_search
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_promo_code_search
+msgid "Archived"
+msgstr "Đã lưu trữ"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_search
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_layout_search
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_background_search
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_transaction_search
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_promotion_search
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_promo_code_search
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_audit_log_search
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_ticket_search
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_layout_system_type_search
+msgid "Group By"
+msgstr "Nhóm theo"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_layout_list
+msgid "Layouts"
+msgstr "Bố cục"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_layout_search
+msgid "Search Layouts"
+msgstr "Tìm kiếm bố cục"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_layout_form
+msgid "Background Colors"
+msgstr "Màu nền"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_layout_form
+msgid "Backgrounds"
+msgstr "Hình nền"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_background_search
+msgid "Search Backgrounds"
+msgstr "Tìm kiếm hình nền"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_group_list
+msgid "Groups"
+msgstr "Nhóm"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_group_list
+msgid "Booths"
+msgstr "Booths"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_group_search
+msgid "Search Groups"
+msgstr "Tìm kiếm nhóm"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_theme_search
+msgid "Search Themes"
+msgstr "Tìm kiếm chủ đề"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_transaction_list
+msgid "Transactions"
+msgstr "Giao dịch"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_transaction_form
+msgid "Set Active"
+msgstr "Kích hoạt"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_transaction_form
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_promotion_form
+msgid "Soft Delete"
+msgstr "Xóa mềm"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_transaction_form
+msgid "Mark this transaction as active?"
+msgstr "Đánh dấu giao dịch này là hoạt động?"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_transaction_form
+msgid "Soft delete this transaction?"
+msgstr "Xóa mềm giao dịch này?"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_transaction_form
+msgid "Pricing"
+msgstr "Giá cả"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_transaction_form
+msgid "Info"
+msgstr "Thông tin"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_transaction_form
+msgid "Media"
+msgstr "Phương tiện"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_transaction_form
+msgid "Promo"
+msgstr "Khuyến mãi"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_transaction_search
+msgid "Search Transactions"
+msgstr "Tìm kiếm giao dịch"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_transaction_search
+msgid "Today"
+msgstr "Hôm nay"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_transaction_search
+msgid "This Week"
+msgstr "Tuần này"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_transaction_search
+msgid "This Month"
+msgstr "Tháng này"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_transaction_search
+msgid "Month"
+msgstr "Tháng"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_promotion_list
+msgid "Promotions"
+msgstr "Khuyến mãi"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_promotion_form
+msgid "Generate Codes"
+msgstr "Tạo mã"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_promotion_form
+msgid "Generate promo codes based on 'Number of Codes'?"
+msgstr "Tạo mã khuyến mãi dựa trên 'Số lượng mã'?"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_promotion_form
+msgid "This will archive the promotion. Continue?"
+msgstr "Thao tác này sẽ lưu trữ khuyến mãi. Tiếp tục?"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_promotion_form
+msgid "Codes"
+msgstr "Mã"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_promotion_form
+msgid "Configuration"
+msgstr "Cấu hình"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_promotion_form
+msgid "Validity"
+msgstr "Hiệu lực"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_promotion_search
+msgid "Search Promotions"
+msgstr "Tìm kiếm khuyến mãi"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_promotion_search
+msgid "Currently Valid"
+msgstr "Đang có hiệu lực"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_promo_code_search
+msgid "Search Promo Codes"
+msgstr "Tìm kiếm mã khuyến mãi"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_ticket_form
+msgid "Receive"
+msgstr "Nhận"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_ticket_form
+msgid "Respond"
+msgstr "Phản hồi"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_ticket_form
+msgid "Complete"
+msgstr "Hoàn thành"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_ticket_form
+msgid "Created On"
+msgstr "Ngày tạo"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_audit_log_form
+msgid "Data"
+msgstr "Dữ liệu"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_audit_log_search
+msgid "Model"
+msgstr "Model"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_app_version_form
+msgid "Release Notes"
+msgstr "Ghi chú phát hành"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_layout_system_type_form
+msgid "Properties"
+msgstr "Thuộc tính"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_layout_system_type_form
+msgid "Print Dimensions"
+msgstr "Kích thước in"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_layout_system_type_form
+msgid "ViewBox"
+msgstr "ViewBox"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_layout_system_type_form
+msgid "Print Margins"
+msgstr "Lề in"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_layout_system_type_search
+msgid "Search Layout System Types"
+msgstr "Tìm kiếm loại hệ thống bố cục"
+
+#. module: isd_photobooth
+#: model:ir.actions.act_window,name:isd_photobooth.action_isd_photobooth
+msgid "Photo Booths"
+msgstr "Photo Booths"
+
+#. module: isd_photobooth
+#: model:ir.actions.act_window,name:isd_photobooth.action_isd_photobooth_group
+msgid "Groups"
+msgstr "Nhóm"
+
+#. module: isd_photobooth
+#: model:ir.actions.act_window,name:isd_photobooth.action_isd_photobooth_theme
+msgid "Themes"
+msgstr "Chủ đề"
+
+#. module: isd_photobooth
+#: model:ir.actions.act_window,name:isd_photobooth.action_isd_photobooth_background
+msgid "Backgrounds"
+msgstr "Hình nền"
+
+#. module: isd_photobooth
+#: model:ir.actions.act_window,name:isd_photobooth.action_isd_photobooth_transaction
+msgid "Transactions"
+msgstr "Giao dịch"
+
+#. module: isd_photobooth
+#: model:ir.actions.act_window,name:isd_photobooth.action_isd_photobooth_promotion
+msgid "Promotions"
+msgstr "Khuyến mãi"
+
+#. module: isd_photobooth
+#: model:ir.actions.act_window,name:isd_photobooth.action_isd_photobooth_promo_code
+msgid "Promo Codes"
+msgstr "Mã khuyến mãi"
+
+#. module: isd_photobooth
+#: model:ir.actions.act_window,name:isd_photobooth.action_isd_photobooth_ticket
+msgid "Support Tickets"
+msgstr "Phiếu hỗ trợ"
+
+#. module: isd_photobooth
+#: model:ir.actions.act_window,name:isd_photobooth.action_isd_photobooth_audit_log
+msgid "Audit Log"
+msgstr "Nhật ký kiểm tra"
+
+#. module: isd_photobooth
+#: model:ir.actions.act_window,name:isd_photobooth.action_isd_photobooth_app_version
+msgid "App Versions"
+msgstr "Phiên bản ứng dụng"
+
+#. module: isd_photobooth
+#: model:ir.actions.act_window,name:isd_photobooth.action_isd_photobooth_layout_system_type
+msgid "Print Configurations"
+msgstr "Cấu hình in"
+
+#. module: isd_photobooth
+#: model:ir.ui.menu,name:isd_photobooth.menu_isd_photobooth_root
+msgid "ISD PhotoBooth"
+msgstr "ISD PhotoBooth"
+
+#. module: isd_photobooth
+#: model:ir.ui.menu,name:isd_photobooth.menu_isd_photobooth_management
+msgid "Management"
+msgstr "Quản lý"
+
+#. module: isd_photobooth
+#: model:ir.ui.menu,name:isd_photobooth.menu_isd_photobooth_booths
+msgid "Photo Booths"
+msgstr "Photo Booths"
+
+#. module: isd_photobooth
+#: model:ir.ui.menu,name:isd_photobooth.menu_isd_photobooth_groups
+msgid "Groups / Locations"
+msgstr "Nhóm / Địa điểm"
+
+#. module: isd_photobooth
+#: model:ir.ui.menu,name:isd_photobooth.menu_isd_photobooth_design
+msgid "Design"
+msgstr "Thiết kế"
+
+#. module: isd_photobooth
+#: model:ir.ui.menu,name:isd_photobooth.menu_isd_photobooth_themes
+msgid "Themes"
+msgstr "Chủ đề"
+
+#. module: isd_photobooth
+#: model:ir.ui.menu,name:isd_photobooth.menu_isd_photobooth_backgrounds
+msgid "Backgrounds"
+msgstr "Hình nền"
+
+#. module: isd_photobooth
+#: model:ir.ui.menu,name:isd_photobooth.menu_isd_photobooth_transactions
+msgid "Transactions"
+msgstr "Giao dịch"
+
+#. module: isd_photobooth
+#: model:ir.ui.menu,name:isd_photobooth.menu_isd_photobooth_marketing
+msgid "Marketing"
+msgstr "Tiếp thị"
+
+#. module: isd_photobooth
+#: model:ir.ui.menu,name:isd_photobooth.menu_isd_photobooth_promotions
+msgid "Promotions"
+msgstr "Khuyến mãi"
+
+#. module: isd_photobooth
+#: model:ir.ui.menu,name:isd_photobooth.menu_isd_photobooth_promo_codes
+msgid "Promo Codes"
+msgstr "Mã khuyến mãi"
+
+#. module: isd_photobooth
+#: model:ir.ui.menu,name:isd_photobooth.menu_isd_photobooth_tickets
+msgid "Tickets"
+msgstr "Phiếu hỗ trợ"
+
+#. module: isd_photobooth
+#: model:ir.ui.menu,name:isd_photobooth.menu_isd_photobooth_audit_log
+msgid "Audit Log"
+msgstr "Nhật ký kiểm tra"
+
+#. module: isd_photobooth
+#: model:ir.ui.menu,name:isd_photobooth.menu_isd_photobooth_config
+msgid "Configuration"
+msgstr "Cấu hình"
+
+#. module: isd_photobooth
+#: model:ir.ui.menu,name:isd_photobooth.menu_isd_photobooth_print_config
+msgid "Print Config"
+msgstr "Cấu hình in"
+
+#. module: isd_photobooth
+#: model:ir.ui.menu,name:isd_photobooth.menu_isd_photobooth_app_version
+msgid "App Versions"
+msgstr "Phiên bản ứng dụng"
+
+#. module: isd_photobooth
+#: model:ir.ui.menu,name:isd_photobooth.menu_isd_photobooth_api_reference
+msgid "API Reference"
+msgstr "Tham chiếu API"
+
+#. module: isd_photobooth
+#: code:addons/isd_photobooth/models/isd_photobooth.py:0
+#: code:addons/isd_photobooth/models/isd_photobooth_layout.py:0
+msgid "%s (Copy)"
+msgstr "%s (Bản sao)"
+
+#. module: isd_photobooth
+#: code:addons/isd_photobooth/models/isd_photobooth.py:0
+msgid "This booth already has layout system types. Clear them first."
+msgstr "Booth này đã có loại hệ thống bố cục. Hãy xóa chúng trước."
+
+#. module: isd_photobooth
+#: code:addons/isd_photobooth/models/isd_photobooth_promotion.py:0
+msgid "Please set a positive number of codes to generate."
+msgstr "Vui lòng đặt số lượng mã cần tạo lớn hơn 0."

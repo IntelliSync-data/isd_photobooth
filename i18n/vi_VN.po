@@ -1,3 +1,7 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* isd_photobooth
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
@@ -5,144 +9,198 @@ msgstr ""
 "POT-Creation-Date: 2026-08-23 00:00+0000\n"
 "PO-Revision-Date: 2026-08-23 00:00+0000\n"
 "Last-Translator: \n"
-"Language-Team: Vietnamese\n"
-"Language: vi_VN\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_is_display_layout_description
 msgid "Display Layout Description"
 msgstr "Hiển thị mô tả của bố cục"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_payment_method_id
 msgid "Payment Method"
 msgstr "Phương thức thanh toán"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_branch
 msgid "Branch"
 msgstr "Phân loại chi nhánh"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_color_button
 msgid "Button Text Color"
 msgstr "Màu chữ button"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_button
 msgid "Button Background Color"
 msgstr "Màu nền button"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_btn_back
 msgid "Back Button Icon"
 msgstr "Icon nút quay lại"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_main
 msgid "Home Screen BG"
 msgstr "Màn hình trang chủ"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_layout
 msgid "Layout Screen BG"
 msgstr "Màn hình trang bố cục"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_theme
 msgid "Theme Screen BG"
 msgstr "Màn hình trang chủ đề"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_is_hide_label_theme
 msgid "Hide Theme Labels"
 msgstr "Ẩn nhãn của các khối chủ đề"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_cell_theme_font_color
 msgid "Theme Cell Font Color"
 msgstr "Màu chữ khung hình của chủ đề"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_frame
 msgid "Frame Screen BG"
 msgstr "Màn hình trang khung hình"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_btn_prev
 msgid "Previous Button Icon"
 msgstr "Icon Click qua trái"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_btn_next
 msgid "Next Button Icon"
 msgstr "Icon Click qua phải"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_quantity
 msgid "Quantity Screen BG"
 msgstr "Màn hình trang số lượng"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_icon_arrow_left
 msgid "Arrow Right Icon"
 msgstr "Icon mũi tên phải"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_payment
 msgid "Payment Screen BG"
 msgstr "Màn hình trang thanh toán"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_payment_notice
 msgid "Payment Notice Screen BG"
 msgstr "Màn hình thông báo trước thanh toán"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_content_payment_notice
 msgid "Payment Notice Content"
 msgstr "Nội dung thông báo thanh toán"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_camera_mode
 msgid "Camera Mode Screen BG"
 msgstr "Màn hình chọn mode chụp hình"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_icon_auto_capture
 msgid "Auto Capture Icon"
 msgstr "Icon chụp tự động"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_icon_remote_capture
 msgid "Remote Capture Icon"
 msgstr "Icon chụp remote"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_frame_horizontal
 msgid "Horizontal Capture BG"
 msgstr "Màn hình chụp hình ngang"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_frame_vertical
 msgid "Vertical Capture BG"
 msgstr "Màn hình chụp hình dọc"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_camera_label_time
 msgid "Camera Time Label"
 msgstr "Nhãn Thời gian ở màn hình chụp"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_camera_label_quantity
 msgid "Camera Quantity Label"
 msgstr "Nhãn Số Lượng ở màn hình chụp"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_frame_square
 msgid "Square Capture BG"
 msgstr "Màn hình chụp khung hình vuông"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_preview_horizontal
 msgid "Horizontal Preview BG"
 msgstr "Màn hình trang chọn hình ảnh ngang"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_preview_vertical
 msgid "Vertical Preview BG"
 msgstr "Màn hình trang chọn hình ảnh dọc"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_print
 msgid "Print Screen BG"
 msgstr "Màn hình trang in"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_btn_home
 msgid "Home Button Icon"
 msgstr "Icon về trang chủ"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_popup
 msgid "Popup BG"
 msgstr "Màn hình popup"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_bg_ads
 msgid "Ads Screen BG"
 msgstr "Màn hình quảng cáo"
 
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_url_ads
 msgid "Advertisement URL"
 msgstr "URL quảng cáo"
 
-msgid "Layout & Theme Settings"
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
+msgid "Layout &amp; Theme Settings"
 msgstr "Cài đặt bố cục và chủ đề"
 
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
 msgid "Bank Customization"
 msgstr "Tùy chỉnh ngân hàng"
 
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
 msgid "UI Customization"
 msgstr "Tùy chỉnh giao diện"
 
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
 msgid "UI Images"
 msgstr "Hình ảnh giao diện"
-
-msgid "3:2"
-msgstr "3:2 (Ngang)"
-
-msgid "2:3"
-msgstr "2:3 (Dọc)"
-
-msgid "1:1"
-msgstr "1:1 (Vuông)"
-
-msgid "6x4 (152mm x 102mm)"
-msgstr "6x4 (152mm x 102mm)"
-
-msgid "4x6 (102mm x 152mm)"
-msgstr "4x6 (102mm x 152mm)"
-
-msgid "6x2 (152mm x 51mm)"
-msgstr "6x2 (152mm x 51mm)"
-
-msgid "2x6 (51mm x 152mm)"
-msgstr "2x6 (51mm x 152mm)"

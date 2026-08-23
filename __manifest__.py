@@ -27,9 +27,6 @@
         'views/photo_download_template.xml',
         'views/res_config_settings_views.xml',
     ],
-    'external_dependencies': {
-        'python': ['boto3'],
-    },
     'assets': {
         'web.assets_backend': [
             'isd_photobooth/static/src/js/api_reference.js',

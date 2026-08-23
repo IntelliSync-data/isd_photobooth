@@ -24,6 +24,7 @@
         'views/isd_photobooth_app_version_views.xml',
         'views/isd_photobooth_api_reference_views.xml',
         'views/menu.xml',
+        'views/photo_download_template.xml',
     ],
     'assets': {
         'web.assets_backend': [

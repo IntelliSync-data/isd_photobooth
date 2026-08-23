@@ -635,3 +635,87 @@ class IsdPhotoboothController(http.Controller):
             'amount_off': promotion.amount_off or 0,
             'percent_off': promotion.percent_off or 0,
         }
+
+    # ==================================================================
+    # Photo Download Page (public, mobile-first)
+    # ==================================================================
+
+    def _classify_media_urls(self, urls):
+        """Separate media URLs into png_images, jpg_images, and video_url."""
+        png_images = []
+        jpg_images = []
+        video_url = None
+        for url in (urls or []):
+            lower = url.rsplit('.', 1)[-1].split('?')[0].lower() if '.' in url else ''
+            if lower == 'png':
+                png_images.append(url)
+            elif lower in ('jpg', 'jpeg'):
+                jpg_images.append(url)
+            elif lower in ('mp4', 'webm', 'mov'):
+                video_url = url
+        return png_images, jpg_images, video_url
+
+    @http.route('/photo-download/<string:transaction_id>', type='http',
+                auth='public', methods=['GET'], csrf=False, website=False)
+    def photo_download_page(self, transaction_id, **kwargs):
+        """Public photo download page — QR code leads here."""
+        if transaction_id == 'example':
+            return request.render('isd_photobooth.photo_download_page', {
+                'error': None,
+                'png_images': [
+                    'https://picsum.photos/seed/pb1/400/600',
+                    'https://picsum.photos/seed/pb2/400/600',
+                ],
+                'jpg_images': [
+                    'https://picsum.photos/seed/pb3/400/600',
+                ],
+                'video_url': None,
+                'transaction_id': 'example',
+            })
+
+        Transaction = request.env['isd.photobooth.transaction'].sudo()
+        txn = Transaction.search([('transaction_id', '=', transaction_id)], limit=1)
+
+        if not txn:
+            return request.render('isd_photobooth.photo_download_page', {
+                'error': 'Không tìm thấy giao dịch.',
+            })
+
+        if txn.is_media_expired():
+            return request.render('isd_photobooth.photo_download_page', {
+                'error': 'Hình ảnh và video đã hết hạn.',
+            })
+
+        medias = txn.medias or []
+        png_images, jpg_images, video_url = self._classify_media_urls(medias)
+
+        return request.render('isd_photobooth.photo_download_page', {
+            'error': None,
+            'png_images': png_images,
+            'jpg_images': jpg_images,
+            'video_url': video_url,
+            'transaction_id': transaction_id,
+        })
+
+    @http.route('/api/v1/transactions/<string:transaction_id>/media_previews',
+                type='http', auth='public', methods=['GET'], csrf=False)
+    def media_previews_api(self, transaction_id, **kwargs):
+        """GET /api/v1/transactions/<transaction_id>/media_previews — backward-compatible API."""
+        Transaction = request.env['isd.photobooth.transaction'].sudo()
+        txn = Transaction.search([('transaction_id', '=', transaction_id)], limit=1)
+
+        if not txn:
+            return self._error_response('Transaction not found', status=404)
+
+        if not txn.medias:
+            return self._error_response('No media found', status=404, code='media_not_found')
+
+        if txn.is_media_expired():
+            return self._error_response('Media expired', status=410, code='media_expired')
+
+        png_images, jpg_images, video_url = self._classify_media_urls(txn.medias)
+
+        return self._json_response({
+            'image_urls': png_images + jpg_images,
+            'video_url': video_url,
+        })

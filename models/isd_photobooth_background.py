@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
+from .s3_image_mixin import upload_binary_fields_to_s3
+
+_S3_FIELDS = {'image': 'image_url'}
 
 
 class IsdPhotoboothBackground(models.Model):
@@ -18,6 +21,16 @@ class IsdPhotoboothBackground(models.Model):
     image_filename = fields.Char('Image Filename')
     image_url = fields.Char('Image URL', help='External image URL (alternative to upload)')
     active = fields.Boolean('Active', default=True)
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            upload_binary_fields_to_s3(self.env, vals, _S3_FIELDS)
+        return super().create(vals_list)
+
+    def write(self, vals):
+        upload_binary_fields_to_s3(self.env, vals, _S3_FIELDS)
+        return super().write(vals)
 
     @api.depends('frame_type', 'image_filename')
     def _compute_name(self):

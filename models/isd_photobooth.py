@@ -4,6 +4,7 @@ import uuid
 
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError
+from .s3_image_mixin import upload_binary_fields_to_s3
 
 
 # Default layout system type templates
@@ -216,6 +217,7 @@ class IsdPhotobooth(models.Model):
     cfg_bg_popup = fields.Image('Popup BG', attachment=True)
     cfg_bg_ads = fields.Image('Ads Screen BG', attachment=True)
     cfg_url_ads = fields.Char('Advertisement URL')
+    cfg_image_urls = fields.Json('Config Image URLs', help='S3 URLs for cfg_* image fields')
 
     # Computed JSON for API
     config_photo_app = fields.Json(
@@ -308,7 +310,7 @@ class IsdPhotobooth(models.Model):
         'cfg_is_display_layout_description', 'cfg_is_hide_label_theme',
         'cfg_payment_method_id', 'cfg_branch',
         'cfg_title_font_color', 'cfg_color_button', 'cfg_bg_button', 'cfg_cell_theme_font_color',
-        'cfg_url_ads',
+        'cfg_url_ads', 'cfg_image_urls',
     )
     def _compute_config_photo_app(self):
         base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url', '')
@@ -321,9 +323,12 @@ class IsdPhotobooth(models.Model):
                     config[key] = 'true' if val else 'false'
                 elif val:
                     config[key] = val
-            # Image fields -> URLs
+            # Image fields -> S3 URLs (fallback to Odoo /web/image/)
+            s3_urls = record.cfg_image_urls or {}
             for key, field_name in self._CONFIG_IMAGE_MAP.items():
-                if record[field_name]:
+                if key in s3_urls:
+                    config[key] = s3_urls[key]
+                elif record[field_name]:
                     config[key] = f"{base_url}/web/image/isd.photobooth/{record.id}/{field_name}"
             # Bank info from linked payment method
             pm = record.cfg_payment_method_id
@@ -336,12 +341,50 @@ class IsdPhotobooth(models.Model):
                 config['branch'] = record.cfg_branch
             record.config_photo_app = config
 
+    def _upload_cfg_images_to_s3(self, vals):
+        """Upload cfg_* image fields to S3 and store URLs in cfg_image_urls."""
+        from odoo.addons.isd_photobooth.services import PhotoboothS3Service
+        s3 = PhotoboothS3Service(self.env)
+        if not s3.is_configured():
+            return
+
+        import base64 as b64
+        import mimetypes
+
+        cfg_urls = dict(vals.get('cfg_image_urls') or {})
+        changed = False
+
+        for config_key, field_name in self._CONFIG_IMAGE_MAP.items():
+            if field_name not in vals or not vals[field_name]:
+                continue
+            try:
+                data = vals[field_name]
+                if isinstance(data, str):
+                    data = b64.b64decode(data)
+                filename = f"{config_key}.png"
+                mime = mimetypes.guess_type(filename)[0] or 'image/png'
+                url = s3.upload_asset(data, filename, mime)
+                cfg_urls[config_key] = url
+                changed = True
+            except Exception:
+                import logging
+                logging.getLogger(__name__).exception(
+                    "S3 upload failed for cfg field %s", field_name)
+
+        if changed:
+            vals['cfg_image_urls'] = cfg_urls
+
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
             if not vals.get('code'):
                 vals['code'] = self._generate_code()
+            self._upload_cfg_images_to_s3(vals)
         return super().create(vals_list)
+
+    def write(self, vals):
+        self._upload_cfg_images_to_s3(vals)
+        return super().write(vals)
 
     @staticmethod
     def _generate_code():

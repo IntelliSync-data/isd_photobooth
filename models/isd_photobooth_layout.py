@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
+from .s3_image_mixin import upload_binary_fields_to_s3
+
+_S3_FIELDS = {'image': 'image_url'}
 
 
 class IsdPhotoboothLayout(models.Model):
@@ -51,6 +54,16 @@ class IsdPhotoboothLayout(models.Model):
     layout_theme_ids = fields.One2many(
         'isd.photobooth.layout.theme', 'layout_id', string='Layout Themes'
     )
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            upload_binary_fields_to_s3(self.env, vals, _S3_FIELDS)
+        return super().create(vals_list)
+
+    def write(self, vals):
+        upload_binary_fields_to_s3(self.env, vals, _S3_FIELDS)
+        return super().write(vals)
 
     def action_clone(self):
         self.ensure_one()

@@ -1,0 +1,35 @@
+name: Update ISD Photobooth Ehub Demo
+
+on:
+  push:
+    branches:
+      - ehub-demo
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Deploy isd_photobooth to Server
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.EHUB_DEMO_HOST }}
+        username: ${{ secrets.EHUB_DEMO_USERNAME }}
+        key: ${{ secrets.EHUB_DEMO_SSH_KEY }}
+        script_stop: true
+        script: |
+          if [ ! -d ~/addons-system/isd_photobooth ]; then
+            git clone git@github.com:IntelliSync-data/isd_photobooth.git ~/addons-system/isd_photobooth
+            cd ~/addons-system/isd_photobooth && git checkout ehub-demo
+          else
+            cd ~/addons-system/isd_photobooth
+            git fetch origin && git reset --hard origin/ehub-demo
+          fi
+
+          rsync -av --delete \
+            ~/addons-system/isd_photobooth/ ~/custom-addons/isd_photobooth/
+
+          sudo systemctl restart odoo

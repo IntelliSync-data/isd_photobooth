@@ -95,7 +95,7 @@ class PhotoboothS3Service:
         Returns:
             str: Public URL of the uploaded file.
         """
-        import io
+        import tempfile
         client = self._get_client()
         bucket = self._get_bucket()
 
@@ -114,7 +114,16 @@ class PhotoboothS3Service:
             extra_args['Expires'] = datetime.now(timezone.utc) + timedelta(seconds=expires_in)
             extra_args['Tagging'] = 'auto-expire=true'
 
-        client.upload_fileobj(io.BytesIO(file_data), bucket, key, ExtraArgs=extra_args)
+        tmp_path = None
+        try:
+            with tempfile.NamedTemporaryFile(delete=False) as tmp:
+                tmp.write(file_data)
+                tmp_path = tmp.name
+            client.upload_file(tmp_path, bucket, key, ExtraArgs=extra_args)
+        finally:
+            if tmp_path and os.path.exists(tmp_path):
+                os.unlink(tmp_path)
+
         url = self._build_url(key)
         _logger.info(
             "Photobooth S3: uploaded %s (%s, %d bytes, expires_in=%s)",

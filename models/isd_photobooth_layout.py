@@ -16,9 +16,9 @@ class IsdPhotoboothLayout(models.Model):
     image_url = fields.Char('Image URL', help='External image URL')
 
     frame_type = fields.Selection([
-        ('vertical', 'Vertical'),
-        ('horizontal', 'Horizontal'),
-        ('square', '1:1'),
+        ('3_2', '3:2'),
+        ('2_3', '2:3'),
+        ('1_1', '1:1'),
     ], string='Frame Type', required=True)
 
     layout_type = fields.Selection([

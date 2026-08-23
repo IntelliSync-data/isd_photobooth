@@ -10,9 +10,9 @@ class IsdPhotoboothBackground(models.Model):
 
     name = fields.Char('Name', compute='_compute_name', store=True)
     frame_type = fields.Selection([
-        ('vertical', 'Vertical'),
-        ('horizontal', 'Horizontal'),
-        ('square', '1:1'),
+        ('3_2', '3:2'),
+        ('2_3', '2:3'),
+        ('1_1', '1:1'),
     ], string='Frame Type', required=True)
     image = fields.Binary('Image', attachment=True)
     image_filename = fields.Char('Image Filename')

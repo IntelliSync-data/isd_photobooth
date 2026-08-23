@@ -8,9 +8,9 @@
                 <field name="image" widget="image" options="{'size': [60, 60]}"/>
                 <field name="name"/>
                 <field name="frame_type" widget="badge"
-                       decoration-info="frame_type == 'vertical'"
-                       decoration-success="frame_type == 'horizontal'"
-                       decoration-warning="frame_type == 'square'"/>
+                       decoration-info="frame_type == '3_2'"
+                       decoration-success="frame_type == '2_3'"
+                       decoration-warning="frame_type == '1_1'"/>
                 <field name="layout_type" widget="badge" optional="show"/>
                 <field name="price"/>
                 <field name="paper_size" optional="show"/>
@@ -83,9 +83,9 @@
         <field name="arch" type="xml">
             <search string="Search Layouts">
                 <field name="name"/>
-                <filter name="vertical" string="Vertical" domain="[('frame_type', '=', 'vertical')]"/>
-                <filter name="horizontal" string="Horizontal" domain="[('frame_type', '=', 'horizontal')]"/>
-                <filter name="square" string="Square" domain="[('frame_type', '=', 'square')]"/>
+                <filter name="3_2" string="3:2" domain="[('frame_type', '=', '3_2')]"/>
+                <filter name="2_3" string="2:3" domain="[('frame_type', '=', '2_3')]"/>
+                <filter name="1_1" string="1:1" domain="[('frame_type', '=', '1_1')]"/>
                 <separator/>
                 <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
                 <group expand="0" string="Group By">

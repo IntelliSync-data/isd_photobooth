@@ -42,9 +42,9 @@
         <field name="arch" type="xml">
             <search string="Search Backgrounds">
                 <field name="name"/>
-                <filter name="vertical" string="Vertical" domain="[('frame_type', '=', 'vertical')]"/>
-                <filter name="horizontal" string="Horizontal" domain="[('frame_type', '=', 'horizontal')]"/>
-                <filter name="square" string="Square" domain="[('frame_type', '=', 'square')]"/>
+                <filter name="3_2" string="3:2" domain="[('frame_type', '=', '3_2')]"/>
+                <filter name="2_3" string="2:3" domain="[('frame_type', '=', '2_3')]"/>
+                <filter name="1_1" string="1:1" domain="[('frame_type', '=', '1_1')]"/>
                 <group expand="0" string="Group By">
                     <filter name="group_frame" string="Frame Type" context="{'group_by': 'frame_type'}"/>
                 </group>

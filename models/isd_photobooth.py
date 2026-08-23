@@ -173,7 +173,7 @@ class IsdPhotobooth(models.Model):
 
     # App Config - Bank Customization (linked to isd_payment)
     cfg_payment_method_id = fields.Many2one(
-        'isd.payment.method', string='Payment Method',
+        'isd_payment.method', string='Payment Method',
         help='Link to payment method for bank info (name, account number, prefix)',
     )
     cfg_branch = fields.Char(

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ============================================================ -->
+    <!-- Root Menu                                                     -->
+    <!-- ============================================================ -->
+    <menuitem id="menu_isd_photobooth_root"
+              name="ISD PhotoBooth"
+              web_icon="isd_photobooth,static/description/icon.png"
+              sequence="110"/>
+
+    <!-- ============================================================ -->
+    <!-- Management (Photo Booths, Groups)                             -->
+    <!-- ============================================================ -->
+    <menuitem id="menu_isd_photobooth_management"
+              name="Management"
+              parent="menu_isd_photobooth_root"
+              groups="group_isd_photobooth_staff"
+              sequence="10"/>
+
+    <menuitem id="menu_isd_photobooth_booths"
+              name="Photo Booths"
+              parent="menu_isd_photobooth_management"
+              action="action_isd_photobooth"
+              groups="group_isd_photobooth_staff"
+              sequence="10"/>
+
+    <menuitem id="menu_isd_photobooth_groups"
+              name="Groups / Locations"
+              parent="menu_isd_photobooth_management"
+              action="action_isd_photobooth_group"
+              groups="group_isd_photobooth_franchise"
+              sequence="20"/>
+
+    <!-- ============================================================ -->
+    <!-- Design (Layouts, Themes, Backgrounds)                         -->
+    <!-- ============================================================ -->
+    <menuitem id="menu_isd_photobooth_design"
+              name="Design"
+              parent="menu_isd_photobooth_root"
+              groups="group_isd_photobooth_staff"
+              sequence="20"/>
+
+    <menuitem id="menu_isd_photobooth_layouts"
+              name="Layouts"
+              parent="menu_isd_photobooth_design"
+              action="action_isd_photobooth_layout"
+              groups="group_isd_photobooth_staff"
+              sequence="10"/>
+
+    <menuitem id="menu_isd_photobooth_themes"
+              name="Themes"
+              parent="menu_isd_photobooth_design"
+              action="action_isd_photobooth_theme"
+              groups="group_isd_photobooth_staff"
+              sequence="20"/>
+
+    <menuitem id="menu_isd_photobooth_backgrounds"
+              name="Backgrounds"
+              parent="menu_isd_photobooth_design"
+              action="action_isd_photobooth_background"
+              groups="group_isd_photobooth_staff"
+              sequence="30"/>
+
+    <!-- ============================================================ -->
+    <!-- Transactions                                                  -->
+    <!-- ============================================================ -->
+    <menuitem id="menu_isd_photobooth_transactions"
+              name="Transactions"
+              parent="menu_isd_photobooth_root"
+              action="action_isd_photobooth_transaction"
+              groups="group_isd_photobooth_staff"
+              sequence="30"/>
+
+    <!-- ============================================================ -->
+    <!-- Promotions (Promotions, Promo Codes)                          -->
+    <!-- ============================================================ -->
+    <menuitem id="menu_isd_photobooth_marketing"
+              name="Marketing"
+              parent="menu_isd_photobooth_root"
+              groups="group_isd_photobooth_franchise"
+              sequence="40"/>
+
+    <menuitem id="menu_isd_photobooth_promotions"
+              name="Promotions"
+              parent="menu_isd_photobooth_marketing"
+              action="action_isd_photobooth_promotion"
+              groups="group_isd_photobooth_franchise"
+              sequence="10"/>
+
+    <menuitem id="menu_isd_photobooth_promo_codes"
+              name="Promo Codes"
+              parent="menu_isd_photobooth_marketing"
+              action="action_isd_photobooth_promo_code"
+              groups="group_isd_photobooth_franchise"
+              sequence="20"/>
+
+    <!-- ============================================================ -->
+    <!-- Support (Tickets)                                             -->
+    <!-- ============================================================ -->
+    <menuitem id="menu_isd_photobooth_tickets"
+              name="Tickets"
+              parent="menu_isd_photobooth_root"
+              action="action_isd_photobooth_ticket"
+              groups="group_isd_photobooth_staff"
+              sequence="50"/>
+
+    <!-- ============================================================ -->
+    <!-- Audit Log                                                     -->
+    <!-- ============================================================ -->
+    <menuitem id="menu_isd_photobooth_audit_log"
+              name="Audit Log"
+              parent="menu_isd_photobooth_root"
+              action="action_isd_photobooth_audit_log"
+              groups="group_isd_photobooth_super_admin"
+              sequence="60"/>
+
+    <!-- ============================================================ -->
+    <!-- Configuration                                                 -->
+    <!-- ============================================================ -->
+    <menuitem id="menu_isd_photobooth_config"
+              name="Configuration"
+              parent="menu_isd_photobooth_root"
+              groups="group_isd_photobooth_super_admin"
+              sequence="90"/>
+
+    <menuitem id="menu_isd_photobooth_print_config"
+              name="Print Config"
+              parent="menu_isd_photobooth_config"
+              action="action_isd_photobooth_layout_system_type"
+              sequence="10"/>
+
+    <menuitem id="menu_isd_photobooth_app_version"
+              name="App Versions"
+              parent="menu_isd_photobooth_config"
+              action="action_isd_photobooth_app_version"
+              sequence="20"/>
+
+    <menuitem id="menu_isd_photobooth_api_reference"
+              name="API Reference"
+              parent="menu_isd_photobooth_config"
+              action="action_isd_photobooth_api_reference"
+              sequence="30"/>
+</odoo>

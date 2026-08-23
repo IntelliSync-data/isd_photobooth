@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- List View -->
+    <record id="view_isd_photobooth_audit_log_list" model="ir.ui.view">
+        <field name="name">isd.photobooth.audit.log.list</field>
+        <field name="model">isd.photobooth.audit.log</field>
+        <field name="arch" type="xml">
+            <list create="0" edit="0" delete="0">
+                <field name="timestamp"/>
+                <field name="model_name"/>
+                <field name="model_id"/>
+                <field name="action" widget="badge"
+                       decoration-info="action == 'create'"
+                       decoration-warning="action == 'update'"
+                       decoration-danger="action == 'delete'"/>
+                <field name="source" widget="badge"/>
+                <field name="user_id"/>
+                <field name="summary"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_isd_photobooth_audit_log_form" model="ir.ui.view">
+        <field name="name">isd.photobooth.audit.log.form</field>
+        <field name="model">isd.photobooth.audit.log</field>
+        <field name="arch" type="xml">
+            <form create="0" edit="0" delete="0">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="model_name"/>
+                            <field name="model_id"/>
+                            <field name="action"/>
+                            <field name="source"/>
+                        </group>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="timestamp"/>
+                            <field name="summary"/>
+                        </group>
+                    </group>
+                    <separator string="Data"/>
+                    <field name="data" widget="json"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_isd_photobooth_audit_log_search" model="ir.ui.view">
+        <field name="name">isd.photobooth.audit.log.search</field>
+        <field name="model">isd.photobooth.audit.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="model_name"/>
+                <field name="user_id"/>
+                <filter name="action_create" string="Create"
+                        domain="[('action', '=', 'create')]"/>
+                <filter name="action_update" string="Update"
+                        domain="[('action', '=', 'update')]"/>
+                <filter name="action_delete" string="Delete"
+                        domain="[('action', '=', 'delete')]"/>
+                <separator/>
+                <filter name="source_portal" string="Portal"
+                        domain="[('source', '=', 'portal')]"/>
+                <filter name="source_photobooth" string="Photobooth"
+                        domain="[('source', '=', 'photobooth')]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter name="group_model_name" string="Model"
+                            context="{'group_by': 'model_name'}"/>
+                    <filter name="group_action" string="Action"
+                            context="{'group_by': 'action'}"/>
+                    <filter name="group_source" string="Source"
+                            context="{'group_by': 'source'}"/>
+                    <filter name="group_date" string="Date"
+                            context="{'group_by': 'timestamp:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_isd_photobooth_audit_log" model="ir.actions.act_window">
+        <field name="name">Audit Log</field>
+        <field name="res_model">isd.photobooth.audit.log</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_isd_photobooth_audit_log_search"/>
+    </record>
+
+</odoo>

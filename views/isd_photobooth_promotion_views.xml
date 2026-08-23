@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_isd_photobooth_promotion_list" model="ir.ui.view">
+        <field name="name">isd.photobooth.promotion.list</field>
+        <field name="model">isd.photobooth.promotion</field>
+        <field name="arch" type="xml">
+            <list string="Promotions">
+                <field name="name"/>
+                <field name="type" widget="badge"/>
+                <field name="status" widget="badge"
+                       decoration-success="status == 'active'"
+                       decoration-danger="status == 'deactive'"/>
+                <field name="amount_off"/>
+                <field name="percent_off"/>
+                <field name="used_count"/>
+                <field name="num_of_codes"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_isd_photobooth_promotion_form" model="ir.ui.view">
+        <field name="name">isd.photobooth.promotion.form</field>
+        <field name="model">isd.photobooth.promotion</field>
+        <field name="arch" type="xml">
+            <form string="Promotion">
+                <header>
+                    <button name="action_generate_codes" type="object"
+                            string="Generate Codes" class="btn-primary"
+                            icon="fa-barcode"
+                            confirm="Generate promo codes based on 'Number of Codes'?"/>
+                    <button name="action_soft_delete" type="object"
+                            string="Soft Delete" class="btn-secondary"
+                            icon="fa-trash"
+                            confirm="This will archive the promotion. Continue?"/>
+                    <field name="status" widget="statusbar"
+                           statusbar_visible="active,deactive"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(action_isd_photobooth_promo_code)d" type="action"
+                                class="oe_stat_button" icon="fa-ticket"
+                                context="{'default_promotion_id': id, 'search_default_promotion_id': id}">
+                            <field name="promo_code_count" widget="statinfo" string="Codes"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Promotion Name"/></h1>
+                    </div>
+                    <group>
+                        <group string="Configuration">
+                            <field name="type"/>
+                            <field name="amount_off" invisible="type != 'voucher'"/>
+                            <field name="percent_off" invisible="type != 'coupon'"/>
+                            <field name="num_of_codes"/>
+                            <field name="used_count"/>
+                            <field name="active"/>
+                        </group>
+                        <group string="Validity">
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="deleted_on" invisible="not deleted_on"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Promo Codes" name="promo_codes">
+                            <field name="promo_code_ids">
+                                <list>
+                                    <field name="code"/>
+                                    <field name="status" widget="badge"
+                                           decoration-success="status == 'unused'"
+                                           decoration-danger="status == 'used'"/>
+                                    <field name="used_time"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Groups" name="groups">
+                            <field name="group_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="address"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_isd_photobooth_promotion_search" model="ir.ui.view">
+        <field name="name">isd.photobooth.promotion.search</field>
+        <field name="model">isd.photobooth.promotion</field>
+        <field name="arch" type="xml">
+            <search string="Search Promotions">
+                <field name="name"/>
+                <filter name="type_voucher" string="Voucher" domain="[('type', '=', 'voucher')]"/>
+                <filter name="type_coupon" string="Coupon" domain="[('type', '=', 'coupon')]"/>
+                <separator/>
+                <filter name="status_active" string="Active" domain="[('status', '=', 'active')]"/>
+                <filter name="status_deactive" string="Deactive" domain="[('status', '=', 'deactive')]"/>
+                <separator/>
+                <filter name="current" string="Currently Valid"
+                        domain="[('start_date', '&lt;=', context_today().strftime('%Y-%m-%d')),
+                                 ('end_date', '&gt;=', context_today().strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_type" string="Type" context="{'group_by': 'type'}"/>
+                    <filter name="group_status" string="Status" context="{'group_by': 'status'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_isd_photobooth_promotion" model="ir.actions.act_window">
+        <field name="name">Promotions</field>
+        <field name="res_model">isd.photobooth.promotion</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_isd_photobooth_promotion_search"/>
+    </record>
+</odoo>

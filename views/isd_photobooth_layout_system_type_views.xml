@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_isd_photobooth_layout_system_type_list" model="ir.ui.view">
+        <field name="name">isd.photobooth.layout.system.type.list</field>
+        <field name="model">isd.photobooth.layout.system.type</field>
+        <field name="arch" type="xml">
+            <list string="Layout System Types">
+                <field name="name"/>
+                <field name="is_cut" widget="boolean"/>
+                <field name="is_landscape" widget="boolean"/>
+                <field name="print_width"/>
+                <field name="print_height"/>
+                <field name="dpi"/>
+                <field name="photobooth_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_isd_photobooth_layout_system_type_form" model="ir.ui.view">
+        <field name="name">isd.photobooth.layout.system.type.form</field>
+        <field name="model">isd.photobooth.layout.system.type</field>
+        <field name="arch" type="xml">
+            <form string="Layout System Type">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Layout System Name"/></h1>
+                    </div>
+                    <group>
+                        <group string="Properties">
+                            <field name="is_cut"/>
+                            <field name="is_landscape"/>
+                            <field name="dpi"/>
+                            <field name="photobooth_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Print Dimensions">
+                            <field name="print_width"/>
+                            <field name="print_height"/>
+                            <field name="actual_width"/>
+                            <field name="actual_height"/>
+                        </group>
+                        <group string="ViewBox">
+                            <field name="viewbox_width"/>
+                            <field name="viewbox_height"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Print Margins">
+                            <field name="print_top"/>
+                            <field name="print_left"/>
+                            <field name="print_bottom"/>
+                            <field name="print_right"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Layout Items" name="items">
+                            <field name="layout_system_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="x"/>
+                                    <field name="y"/>
+                                    <field name="width"/>
+                                    <field name="height"/>
+                                    <field name="is_qr"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_isd_photobooth_layout_system_type_search" model="ir.ui.view">
+        <field name="name">isd.photobooth.layout.system.type.search</field>
+        <field name="model">isd.photobooth.layout.system.type</field>
+        <field name="arch" type="xml">
+            <search string="Search Layout System Types">
+                <field name="name"/>
+                <field name="photobooth_id"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_booth" string="Photo Booth" context="{'group_by': 'photobooth_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_isd_photobooth_layout_system_type" model="ir.actions.act_window">
+        <field name="name">Print Configurations</field>
+        <field name="res_model">isd.photobooth.layout.system.type</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_isd_photobooth_layout_system_type_search"/>
+    </record>
+</odoo>

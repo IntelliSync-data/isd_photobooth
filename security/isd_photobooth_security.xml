@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Module Category -->
+    <record id="module_category_isd_photobooth" model="ir.module.category">
+        <field name="name">ISD PhotoBooth</field>
+        <field name="sequence">200</field>
+    </record>
+
+    <!-- Security Groups -->
+    <record id="group_isd_photobooth_staff" model="res.groups">
+        <field name="name">Staff</field>
+        <field name="category_id" ref="module_category_isd_photobooth"/>
+    </record>
+
+    <record id="group_isd_photobooth_franchise" model="res.groups">
+        <field name="name">Franchise</field>
+        <field name="category_id" ref="module_category_isd_photobooth"/>
+        <field name="implied_ids" eval="[(4, ref('group_isd_photobooth_staff'))]"/>
+    </record>
+
+    <record id="group_isd_photobooth_super_admin" model="res.groups">
+        <field name="name">Super Admin</field>
+        <field name="category_id" ref="module_category_isd_photobooth"/>
+        <field name="implied_ids" eval="[(4, ref('group_isd_photobooth_franchise'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+
+    <!-- Record Rules -->
+
+    <!-- Super Admin: see all -->
+    <record id="rule_photobooth_super_admin" model="ir.rule">
+        <field name="name">PhotoBooth: Super Admin - All</field>
+        <field name="model_id" ref="model_isd_photobooth"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_isd_photobooth_super_admin'))]"/>
+    </record>
+
+    <record id="rule_photobooth_group_super_admin" model="ir.rule">
+        <field name="name">PhotoBooth Group: Super Admin - All</field>
+        <field name="model_id" ref="model_isd_photobooth_group"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_isd_photobooth_super_admin'))]"/>
+    </record>
+
+    <record id="rule_photobooth_layout_super_admin" model="ir.rule">
+        <field name="name">PhotoBooth Layout: Super Admin - All</field>
+        <field name="model_id" ref="model_isd_photobooth_layout"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_isd_photobooth_super_admin'))]"/>
+    </record>
+
+    <!-- Franchise/Staff: see booths in assigned groups -->
+    <record id="rule_photobooth_franchise" model="ir.rule">
+        <field name="name">PhotoBooth: Franchise/Staff - Own Groups</field>
+        <field name="model_id" ref="model_isd_photobooth"/>
+        <field name="domain_force">[('group_id.managed_user_ids', 'in', user.id)]</field>
+        <field name="groups" eval="[(4, ref('group_isd_photobooth_staff'))]"/>
+    </record>
+
+    <record id="rule_photobooth_group_franchise" model="ir.rule">
+        <field name="name">PhotoBooth Group: Franchise/Staff - Own Groups</field>
+        <field name="model_id" ref="model_isd_photobooth_group"/>
+        <field name="domain_force">[('managed_user_ids', 'in', user.id)]</field>
+        <field name="groups" eval="[(4, ref('group_isd_photobooth_staff'))]"/>
+    </record>
+
+    <record id="rule_photobooth_layout_all" model="ir.rule">
+        <field name="name">PhotoBooth Layout: All Users</field>
+        <field name="model_id" ref="model_isd_photobooth_layout"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_isd_photobooth_staff'))]"/>
+    </record>
+
+    <record id="rule_photobooth_theme_all" model="ir.rule">
+        <field name="name">PhotoBooth Theme: All Users</field>
+        <field name="model_id" ref="model_isd_photobooth_theme"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_isd_photobooth_staff'))]"/>
+    </record>
+
+    <record id="rule_photobooth_background_all" model="ir.rule">
+        <field name="name">PhotoBooth Background: All Users</field>
+        <field name="model_id" ref="model_isd_photobooth_background"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_isd_photobooth_staff'))]"/>
+    </record>
+
+    <record id="rule_photobooth_layout_system_type_all" model="ir.rule">
+        <field name="name">PhotoBooth Layout System Type: All Users</field>
+        <field name="model_id" ref="model_isd_photobooth_layout_system_type"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_isd_photobooth_staff'))]"/>
+    </record>
+
+    <record id="rule_photobooth_layout_system_all" model="ir.rule">
+        <field name="name">PhotoBooth Layout System: All Users</field>
+        <field name="model_id" ref="model_isd_photobooth_layout_system"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_isd_photobooth_staff'))]"/>
+    </record>
+
+    <record id="rule_photobooth_layout_theme_all" model="ir.rule">
+        <field name="name">PhotoBooth Layout Theme: All Users</field>
+        <field name="model_id" ref="model_isd_photobooth_layout_theme"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_isd_photobooth_staff'))]"/>
+    </record>
+
+    <!-- Transaction Record Rules -->
+    <record id="rule_photobooth_transaction_super_admin" model="ir.rule">
+        <field name="name">PhotoBooth Transaction: Super Admin - All</field>
+        <field name="model_id" ref="model_isd_photobooth_transaction"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_isd_photobooth_super_admin'))]"/>
+    </record>
+
+    <record id="rule_photobooth_transaction_franchise" model="ir.rule">
+        <field name="name">PhotoBooth Transaction: Franchise/Staff - Own Groups</field>
+        <field name="model_id" ref="model_isd_photobooth_transaction"/>
+        <field name="domain_force">[('group_id.managed_user_ids', 'in', user.id)]</field>
+        <field name="groups" eval="[(4, ref('group_isd_photobooth_staff'))]"/>
+    </record>
+
+    <!-- Promotion: all users can see -->
+    <record id="rule_photobooth_promotion_all" model="ir.rule">
+        <field name="name">PhotoBooth Promotion: All Users</field>
+        <field name="model_id" ref="model_isd_photobooth_promotion"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_isd_photobooth_staff'))]"/>
+    </record>
+
+    <record id="rule_photobooth_promo_code_all" model="ir.rule">
+        <field name="name">PhotoBooth Promo Code: All Users</field>
+        <field name="model_id" ref="model_isd_photobooth_promo_code"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_isd_photobooth_staff'))]"/>
+    </record>
+
+    <!-- Audit Log: super admin only -->
+    <record id="rule_photobooth_audit_log_all" model="ir.rule">
+        <field name="name">PhotoBooth Audit Log: Super Admin</field>
+        <field name="model_id" ref="model_isd_photobooth_audit_log"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_isd_photobooth_super_admin'))]"/>
+    </record>
+
+    <!-- Ticket: all users -->
+    <record id="rule_photobooth_ticket_all" model="ir.rule">
+        <field name="name">PhotoBooth Ticket: All Users</field>
+        <field name="model_id" ref="model_isd_photobooth_ticket"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_isd_photobooth_staff'))]"/>
+    </record>
+
+    <!-- App Version: all users can read -->
+    <record id="rule_photobooth_app_version_all" model="ir.rule">
+        <field name="name">PhotoBooth App Version: All Users</field>
+        <field name="model_id" ref="model_isd_photobooth_app_version"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_isd_photobooth_staff'))]"/>
+    </record>
+</odoo>

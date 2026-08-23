@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- List View -->
+    <record id="view_isd_photobooth_ticket_list" model="ir.ui.view">
+        <field name="name">isd.photobooth.ticket.list</field>
+        <field name="model">isd.photobooth.ticket</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="subject"/>
+                <field name="status" widget="badge"
+                       decoration-info="status == 'created'"
+                       decoration-warning="status in ('received', 'in_progress')"
+                       decoration-success="status == 'completed'"
+                       decoration-primary="status == 'responded'"/>
+                <field name="assigned_to_id"/>
+                <field name="photobooth_id"/>
+                <field name="created_by_id"/>
+                <field name="create_date"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_isd_photobooth_ticket_form" model="ir.ui.view">
+        <field name="name">isd.photobooth.ticket.form</field>
+        <field name="model">isd.photobooth.ticket</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_receive" string="Receive"
+                            type="object" class="btn-primary"
+                            invisible="status != 'created'"/>
+                    <button name="action_in_progress" string="In Progress"
+                            type="object" class="btn-primary"
+                            invisible="status != 'received'"/>
+                    <button name="action_respond" string="Respond"
+                            type="object" class="btn-primary"
+                            invisible="status != 'in_progress'"/>
+                    <button name="action_complete" string="Complete"
+                            type="object" class="btn-primary"
+                            invisible="status not in ('in_progress', 'responded')"/>
+                    <field name="status" widget="statusbar"
+                           statusbar_visible="created,received,in_progress,responded,completed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="subject"/>
+                        <h1>
+                            <field name="subject" placeholder="Ticket Subject..."/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="photobooth_id"/>
+                            <field name="assigned_to_id"/>
+                        </group>
+                        <group>
+                            <field name="created_by_id"/>
+                            <field name="create_date" string="Created On"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description" placeholder="Describe the issue..."/>
+                        </page>
+                        <page string="Images" name="images">
+                            <field name="image_ids" widget="many2many_binary"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_isd_photobooth_ticket_search" model="ir.ui.view">
+        <field name="name">isd.photobooth.ticket.search</field>
+        <field name="model">isd.photobooth.ticket</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="subject"/>
+                <field name="assigned_to_id"/>
+                <field name="photobooth_id"/>
+                <filter name="status_created" string="Created"
+                        domain="[('status', '=', 'created')]"/>
+                <filter name="status_received" string="Received"
+                        domain="[('status', '=', 'received')]"/>
+                <filter name="status_in_progress" string="In Progress"
+                        domain="[('status', '=', 'in_progress')]"/>
+                <filter name="status_responded" string="Responded"
+                        domain="[('status', '=', 'responded')]"/>
+                <filter name="status_completed" string="Completed"
+                        domain="[('status', '=', 'completed')]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter name="group_status" string="Status"
+                            context="{'group_by': 'status'}"/>
+                    <filter name="group_assigned_to" string="Assigned To"
+                            context="{'group_by': 'assigned_to_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_isd_photobooth_ticket" model="ir.actions.act_window">
+        <field name="name">Support Tickets</field>
+        <field name="res_model">isd.photobooth.ticket</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_isd_photobooth_ticket_search"/>
+    </record>
+
+</odoo>

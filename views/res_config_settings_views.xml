@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_photobooth" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.photobooth</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="ISD PhotoBooth" string="ISD PhotoBooth" name="isd_photobooth">
+                    <block title="S3 Storage" name="photobooth_s3_settings">
+                        <setting string="S3 Configuration"
+                                 help="Configure Amazon S3 for media storage. Leave empty to use ISD Media settings.">
+                            <div class="row mt16">
+                                <div class="col-lg-6">
+                                    <label for="photobooth_s3_bucket_name"/>
+                                    <field name="photobooth_s3_bucket_name" placeholder="e.g. photoapp-prod"/>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="photobooth_s3_region"/>
+                                    <field name="photobooth_s3_region" placeholder="e.g. ap-southeast-1"/>
+                                </div>
+                            </div>
+                            <div class="row mt8">
+                                <div class="col-lg-6">
+                                    <label for="photobooth_s3_access_key"/>
+                                    <field name="photobooth_s3_access_key" placeholder="AWS Access Key ID"/>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="photobooth_s3_secret_key"/>
+                                    <field name="photobooth_s3_secret_key" password="True"
+                                           placeholder="AWS Secret Access Key"/>
+                                </div>
+                            </div>
+                            <div class="row mt8">
+                                <div class="col-lg-6">
+                                    <label for="photobooth_s3_endpoint_url"/>
+                                    <field name="photobooth_s3_endpoint_url"
+                                           placeholder="e.g. https://bucket.s3.ap-southeast-1.amazonaws.com"/>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="photobooth_s3_public_base_url"/>
+                                    <field name="photobooth_s3_public_base_url"
+                                           placeholder="Custom public URL (optional)"/>
+                                </div>
+                            </div>
+                            <div class="row mt8">
+                                <div class="col-lg-6">
+                                    <field name="photobooth_s3_use_ssl"/>
+                                    <label for="photobooth_s3_use_ssl"/>
+                                </div>
+                            </div>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>

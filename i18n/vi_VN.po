@@ -1681,3 +1681,38 @@ msgstr "Booth này đã có loại hệ thống bố cục. Hãy xóa chúng tr�
 #: code:addons/isd_photobooth/models/isd_photobooth_promotion.py:0
 msgid "Please set a positive number of codes to generate."
 msgstr "Vui lòng đặt số lượng mã cần tạo lớn hơn 0."
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_res_config_settings__photobooth_s3_bucket_name
+msgid "S3 Bucket Name"
+msgstr "Tên Bucket S3"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_res_config_settings__photobooth_s3_region
+msgid "S3 Region"
+msgstr "Vùng S3"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_res_config_settings__photobooth_s3_access_key
+msgid "S3 Access Key"
+msgstr "Khóa truy cập S3"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_res_config_settings__photobooth_s3_secret_key
+msgid "S3 Secret Key"
+msgstr "Khóa bí mật S3"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_res_config_settings__photobooth_s3_endpoint_url
+msgid "S3 Endpoint URL"
+msgstr "URL Endpoint S3"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_res_config_settings__photobooth_s3_public_base_url
+msgid "S3 Public Base URL"
+msgstr "URL công khai S3"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_res_config_settings__photobooth_s3_use_ssl
+msgid "Use SSL"
+msgstr "Sử dụng SSL"

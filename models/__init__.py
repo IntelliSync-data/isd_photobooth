@@ -11,3 +11,4 @@ from . import isd_photobooth_promo_code
 from . import isd_photobooth_audit_log
 from . import isd_photobooth_ticket
 from . import isd_photobooth_app_version
+from . import res_config_settings

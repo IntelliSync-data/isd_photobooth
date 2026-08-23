@@ -2,8 +2,6 @@
 
 import json
 import logging
-import base64
-from datetime import timedelta
 
 from odoo import http, fields, _
 from odoo.http import request, Response
@@ -519,6 +517,10 @@ class IsdPhotoboothController(http.Controller):
             _logger.exception('Error in payments_confirm')
             return self._error_response(str(e), status=500)
 
+    def _get_s3_service(self):
+        from odoo.addons.isd_photobooth.services import PhotoboothS3Service
+        return PhotoboothS3Service(request.env)
+
     @http.route('/api/v1/photobooth/<int:booth_id>/payments/<int:payment_id>/media_upload',
                 type='http', auth='public', methods=['POST'], csrf=False)
     def media_upload(self, booth_id, payment_id, **kwargs):
@@ -533,30 +535,34 @@ class IsdPhotoboothController(http.Controller):
             if not txn.exists() or txn.photo_app_id.id != booth.id:
                 return self._error_response('Transaction not found', status=404)
 
-            # Collect uploaded files
-            uploaded_urls = []
             files = request.httprequest.files.getlist('files')
             if not files:
                 files = request.httprequest.files.getlist('file')
+            if not files:
+                files = request.httprequest.files.getlist('images')
+            video_files = request.httprequest.files.getlist('video')
 
-            Attachment = request.env['ir.attachment'].sudo()
-            for f in files:
+            s3 = self._get_s3_service()
+            if not s3.is_configured():
+                return self._error_response(
+                    'S3 storage is not configured', status=500, code='S3_NOT_CONFIGURED')
+
+            uploaded_urls = []
+            all_files = list(files) + list(video_files)
+            for f in all_files:
                 file_data = f.read()
-                attachment = Attachment.create({
-                    'name': f.filename,
-                    'datas': base64.b64encode(file_data),
-                    'res_model': 'isd.photobooth.transaction',
-                    'res_id': txn.id,
-                    'type': 'binary',
-                })
-                url = '/web/content/%d/%s' % (attachment.id, f.filename)
+                if not file_data:
+                    continue
+                url = s3.upload_transaction_media(file_data, f.filename, f.content_type or 'application/octet-stream')
                 uploaded_urls.append(url)
 
-            # Merge with existing medias
             existing = txn.medias or []
             all_urls = existing + uploaded_urls
 
             txn.update_medias(all_urls)
+
+            base_url = request.env['ir.config_parameter'].sudo().get_param('web.base.url', '')
+            web_medias_url = f"{base_url}/photo-download/{txn.transaction_id}"
 
             return self._json_response({
                 'success': True,
@@ -564,10 +570,41 @@ class IsdPhotoboothController(http.Controller):
                     'payment_id': txn.id,
                     'medias': all_urls,
                     'medias_expired_at': txn.medias_expired_at,
+                    'web_medias_url': web_medias_url,
                 },
             })
         except Exception as e:
             _logger.exception('Error in media_upload')
+            return self._error_response(str(e), status=500)
+
+    @http.route('/api/v1/fm/upload_file', type='http', auth='public',
+                methods=['POST'], csrf=False)
+    def upload_file(self, **kwargs):
+        """POST /api/v1/fm/upload_file - Upload a permanent asset to S3."""
+        try:
+            files = request.httprequest.files.getlist('file')
+            if not files:
+                files = request.httprequest.files.getlist('files')
+            if not files:
+                return self._error_response('No file provided')
+
+            s3 = self._get_s3_service()
+            if not s3.is_configured():
+                return self._error_response(
+                    'S3 storage is not configured', status=500, code='S3_NOT_CONFIGURED')
+
+            f = files[0]
+            file_data = f.read()
+            url = s3.upload_asset(file_data, f.filename, f.content_type or 'application/octet-stream')
+
+            return self._json_response({
+                'success': True,
+                'data': {
+                    'file_url': url,
+                },
+            })
+        except Exception as e:
+            _logger.exception('Error in upload_file')
             return self._error_response(str(e), status=500)
 
     @http.route('/api/v1/photobooth/<int:booth_id>/check_promo_code', type='http',

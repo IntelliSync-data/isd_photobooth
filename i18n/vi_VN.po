@@ -32,6 +32,13 @@ msgstr "Phân loại chi nhánh"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_color_button
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_title_font_color
+msgid "Title Font Color"
+msgstr "Màu chữ tiêu đề"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__cfg_color_button
 msgid "Button Text Color"
 msgstr "Màu chữ button"
 
@@ -189,6 +196,11 @@ msgstr "URL quảng cáo"
 #: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
 msgid "Layout &amp; Theme Settings"
 msgstr "Cài đặt bố cục và chủ đề"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
+msgid "Bank Config"
+msgstr "Ngân hàng"
 
 #. module: isd_photobooth
 #: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form

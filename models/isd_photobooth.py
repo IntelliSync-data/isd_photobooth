@@ -179,6 +179,7 @@ class IsdPhotobooth(models.Model):
 
     # ── App Config: UI Customization ──
     # Colors
+    cfg_title_font_color = fields.Char('Title Font Color')
     cfg_color_button = fields.Char('Button Text Color')
     cfg_bg_button = fields.Char('Button Background Color')
 
@@ -248,6 +249,7 @@ class IsdPhotobooth(models.Model):
     # Mapping: config JSON key -> Odoo field name (text/bool fields only)
     _CONFIG_TEXT_MAP = {
         'is_display_layout_description': 'cfg_is_display_layout_description',
+        'font_color': 'cfg_title_font_color',
         'color_button': 'cfg_color_button',
         'bg_button': 'cfg_bg_button',
         'cell_theme_font_color': 'cfg_cell_theme_font_color',
@@ -290,7 +292,7 @@ class IsdPhotobooth(models.Model):
     @api.depends(
         'cfg_is_display_layout_description', 'cfg_is_hide_label_theme',
         'cfg_payment_method_id', 'cfg_branch',
-        'cfg_color_button', 'cfg_bg_button', 'cfg_cell_theme_font_color',
+        'cfg_title_font_color', 'cfg_color_button', 'cfg_bg_button', 'cfg_cell_theme_font_color',
         'cfg_url_ads',
     )
     def _compute_config_photo_app(self):

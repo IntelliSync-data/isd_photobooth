@@ -95,15 +95,7 @@
                                 </list>
                             </field>
                         </page>
-                        <page string="App Config" name="app_config">
-                            <!-- Layout & Theme Settings -->
-                            <group string="Layout &amp; Theme Settings">
-                                <group>
-                                    <field name="cfg_is_display_layout_description"/>
-                                </group>
-                            </group>
-
-                            <!-- Bank Customization -->
+                        <page string="Bank Config" name="bank_config">
                             <group string="Bank Customization">
                                 <group>
                                     <field name="cfg_payment_method_id"/>
@@ -112,10 +104,19 @@
                                     <field name="cfg_branch"/>
                                 </group>
                             </group>
+                        </page>
+                        <page string="App Config" name="app_config">
+                            <!-- Layout & Theme Settings -->
+                            <group string="Layout &amp; Theme Settings">
+                                <group>
+                                    <field name="cfg_is_display_layout_description"/>
+                                </group>
+                            </group>
 
                             <!-- UI Customization -->
                             <group string="UI Customization">
                                 <group>
+                                    <field name="cfg_title_font_color" widget="color"/>
                                     <field name="cfg_color_button" widget="color"/>
                                     <field name="cfg_bg_button" widget="color"/>
                                 </group>

@@ -223,9 +223,39 @@ msgid "Status"
 msgstr "Trạng thái"
 
 #. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__pm_cash
+msgid "Cash"
+msgstr "Tiền mặt"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__pm_free
+msgid "Free"
+msgstr "Miễn phí"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__pm_transfer
+msgid "Transfer"
+msgstr "Chuyển khoản"
+
+#. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__payment_method
 msgid "Payment Methods"
 msgstr "Phương thức thanh toán"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__dl_image
+msgid "Image"
+msgstr "Hình ảnh"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__dl_original_images
+msgid "Original Images"
+msgstr "Hình ảnh gốc"
+
+#. module: isd_photobooth
+#: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__dl_video
+msgid "Video"
+msgstr "Video"
 
 #. module: isd_photobooth
 #: model:ir.model.fields,field_description:isd_photobooth.field_isd_photobooth__download_media_type
@@ -1163,8 +1193,13 @@ msgstr "Tổng quát"
 
 #. module: isd_photobooth
 #: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
-msgid "Payment &amp; Download"
-msgstr "Thanh toán &amp; Tải về"
+msgid "Payment Methods"
+msgstr "Phương thức thanh toán"
+
+#. module: isd_photobooth
+#: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form
+msgid "Download Media Types"
+msgstr "Loại phương tiện tải về"
 
 #. module: isd_photobooth
 #: model_terms:ir.ui.view,arch_db:isd_photobooth.view_isd_photobooth_form

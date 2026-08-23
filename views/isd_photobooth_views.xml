@@ -54,9 +54,15 @@
                             <field name="max_prints"/>
                             <field name="active"/>
                         </group>
-                        <group string="Payment &amp; Download">
-                            <field name="payment_method" widget="json"/>
-                            <field name="download_media_type" widget="json"/>
+                        <group string="Payment Methods">
+                            <field name="pm_cash"/>
+                            <field name="pm_free"/>
+                            <field name="pm_transfer"/>
+                        </group>
+                        <group string="Download Media Types">
+                            <field name="dl_image"/>
+                            <field name="dl_original_images"/>
+                            <field name="dl_video"/>
                         </group>
                     </group>
                     <notebook>

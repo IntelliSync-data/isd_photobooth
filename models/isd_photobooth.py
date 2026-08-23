@@ -143,16 +143,19 @@ class IsdPhotobooth(models.Model):
         ('installed', 'Installed'),
     ], string='Status', default='not_yet', required=True)
 
-    # Payment & Download
+    # Payment & Download — checkboxes
+    pm_cash = fields.Boolean('Cash', default=True)
+    pm_free = fields.Boolean('Free')
+    pm_transfer = fields.Boolean('Transfer')
     payment_method = fields.Json(
-        'Payment Methods',
-        help='e.g. ["cash", "free", "transfer"]',
-        default=lambda self: ['cash'],
+        'Payment Methods', compute='_compute_payment_method', store=True,
     )
+
+    dl_image = fields.Boolean('Image', default=True)
+    dl_original_images = fields.Boolean('Original Images')
+    dl_video = fields.Boolean('Video')
     download_media_type = fields.Json(
-        'Download Media Types',
-        help='e.g. ["image", "original_images", "video"]',
-        default=lambda self: ['image'],
+        'Download Media Types', compute='_compute_download_media_type', store=True,
     )
 
     # Hardware
@@ -288,6 +291,18 @@ class IsdPhotobooth(models.Model):
     }
 
     _BOOL_CONFIG_KEYS = {'is_display_layout_description', 'is_hide_label_theme'}
+
+    @api.depends('pm_cash', 'pm_free', 'pm_transfer')
+    def _compute_payment_method(self):
+        mapping = [('pm_cash', 'cash'), ('pm_free', 'free'), ('pm_transfer', 'transfer')]
+        for record in self:
+            record.payment_method = [v for f, v in mapping if record[f]]
+
+    @api.depends('dl_image', 'dl_original_images', 'dl_video')
+    def _compute_download_media_type(self):
+        mapping = [('dl_image', 'image'), ('dl_original_images', 'original_images'), ('dl_video', 'video')]
+        for record in self:
+            record.download_media_type = [v for f, v in mapping if record[f]]
 
     @api.depends(
         'cfg_is_display_layout_description', 'cfg_is_hide_label_theme',

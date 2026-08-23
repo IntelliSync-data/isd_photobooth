@@ -1,0 +1,148 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-23 00:00+0000\n"
+"PO-Revision-Date: 2026-08-23 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Vietnamese\n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Display Layout Description"
+msgstr "Hiển thị mô tả của bố cục"
+
+msgid "Payment Method"
+msgstr "Phương thức thanh toán"
+
+msgid "Branch"
+msgstr "Phân loại chi nhánh"
+
+msgid "Button Text Color"
+msgstr "Màu chữ button"
+
+msgid "Button Background Color"
+msgstr "Màu nền button"
+
+msgid "Back Button Icon"
+msgstr "Icon nút quay lại"
+
+msgid "Home Screen BG"
+msgstr "Màn hình trang chủ"
+
+msgid "Layout Screen BG"
+msgstr "Màn hình trang bố cục"
+
+msgid "Theme Screen BG"
+msgstr "Màn hình trang chủ đề"
+
+msgid "Hide Theme Labels"
+msgstr "Ẩn nhãn của các khối chủ đề"
+
+msgid "Theme Cell Font Color"
+msgstr "Màu chữ khung hình của chủ đề"
+
+msgid "Frame Screen BG"
+msgstr "Màn hình trang khung hình"
+
+msgid "Previous Button Icon"
+msgstr "Icon Click qua trái"
+
+msgid "Next Button Icon"
+msgstr "Icon Click qua phải"
+
+msgid "Quantity Screen BG"
+msgstr "Màn hình trang số lượng"
+
+msgid "Arrow Right Icon"
+msgstr "Icon mũi tên phải"
+
+msgid "Payment Screen BG"
+msgstr "Màn hình trang thanh toán"
+
+msgid "Payment Notice Screen BG"
+msgstr "Màn hình thông báo trước thanh toán"
+
+msgid "Payment Notice Content"
+msgstr "Nội dung thông báo thanh toán"
+
+msgid "Camera Mode Screen BG"
+msgstr "Màn hình chọn mode chụp hình"
+
+msgid "Auto Capture Icon"
+msgstr "Icon chụp tự động"
+
+msgid "Remote Capture Icon"
+msgstr "Icon chụp remote"
+
+msgid "Horizontal Capture BG"
+msgstr "Màn hình chụp hình ngang"
+
+msgid "Vertical Capture BG"
+msgstr "Màn hình chụp hình dọc"
+
+msgid "Camera Time Label"
+msgstr "Nhãn Thời gian ở màn hình chụp"
+
+msgid "Camera Quantity Label"
+msgstr "Nhãn Số Lượng ở màn hình chụp"
+
+msgid "Square Capture BG"
+msgstr "Màn hình chụp khung hình vuông"
+
+msgid "Horizontal Preview BG"
+msgstr "Màn hình trang chọn hình ảnh ngang"
+
+msgid "Vertical Preview BG"
+msgstr "Màn hình trang chọn hình ảnh dọc"
+
+msgid "Print Screen BG"
+msgstr "Màn hình trang in"
+
+msgid "Home Button Icon"
+msgstr "Icon về trang chủ"
+
+msgid "Popup BG"
+msgstr "Màn hình popup"
+
+msgid "Ads Screen BG"
+msgstr "Màn hình quảng cáo"
+
+msgid "Advertisement URL"
+msgstr "URL quảng cáo"
+
+msgid "Layout & Theme Settings"
+msgstr "Cài đặt bố cục và chủ đề"
+
+msgid "Bank Customization"
+msgstr "Tùy chỉnh ngân hàng"
+
+msgid "UI Customization"
+msgstr "Tùy chỉnh giao diện"
+
+msgid "UI Images"
+msgstr "Hình ảnh giao diện"
+
+msgid "3:2"
+msgstr "3:2 (Ngang)"
+
+msgid "2:3"
+msgstr "2:3 (Dọc)"
+
+msgid "1:1"
+msgstr "1:1 (Vuông)"
+
+msgid "6x4 (152mm x 102mm)"
+msgstr "6x4 (152mm x 102mm)"
+
+msgid "4x6 (102mm x 152mm)"
+msgstr "4x6 (102mm x 152mm)"
+
+msgid "6x2 (152mm x 51mm)"
+msgstr "6x2 (152mm x 51mm)"
+
+msgid "2x6 (51mm x 152mm)"
+msgstr "2x6 (51mm x 152mm)"

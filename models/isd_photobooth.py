@@ -143,10 +143,6 @@ class IsdPhotobooth(models.Model):
         ('installed', 'Installed'),
     ], string='Status', default='not_yet', required=True)
 
-    # Appearance
-    background_url = fields.Char('Background URL')
-    font_color = fields.Char('Font Color', default='#ffffff')
-
     # Payment & Download
     payment_method = fields.Json(
         'Payment Methods',
@@ -168,68 +164,54 @@ class IsdPhotobooth(models.Model):
     )
     last_meta_updated_at = fields.Datetime('Last Meta Updated', readonly=True)
 
-    # App Config - Layout & Description
+    # ── App Config: Layout & Theme ──
     cfg_is_display_layout_description = fields.Boolean('Display Layout Description', default=False)
 
-    # App Config - Bank Customization (linked to isd_payment)
+    # ── App Config: Bank Customization ──
     cfg_payment_method_id = fields.Many2one(
         'isd_payment.method', string='Payment Method',
         help='Link to payment method for bank info (name, account number, prefix)',
     )
     cfg_branch = fields.Char(
-        'Branch', help='Branch/machine identifier sent to payment API (e.g. "Huế - Máy 1")',
+        'Branch',
+        help='Branch/machine identifier sent to payment API (e.g. "Huế - Máy 1")',
     )
 
-    # App Config - UI Colors
+    # ── App Config: UI Customization ──
+    # Colors
     cfg_color_button = fields.Char('Button Text Color')
     cfg_bg_button = fields.Char('Button Background Color')
-    cfg_cell_theme_font_color = fields.Char('Theme Cell Font Color', default='#FFFFFF')
 
-    # App Config - Background Images (Main Screens)
-    cfg_bg_main = fields.Char('Home Screen BG')
-    cfg_bg_layout = fields.Char('Layout Screen BG')
-    cfg_bg_theme = fields.Char('Theme Screen BG')
-    cfg_bg_quantity = fields.Char('Quantity Screen BG')
-    cfg_bg_payment = fields.Char('Payment Screen BG')
-    cfg_bg_payment_notice = fields.Char('Payment Notice Screen BG')
-    cfg_bg_popup = fields.Char('Popup BG')
-    cfg_bg_ads = fields.Char('Ads Screen BG')
-
-    # App Config - Background Images (Camera Screens)
-    cfg_bg_camera_mode = fields.Char('Camera Mode Screen BG')
-    cfg_bg_frame = fields.Char('Frame Screen BG')
-    cfg_bg_frame_horizontal = fields.Char('Horizontal Capture BG')
-    cfg_bg_frame_vertical = fields.Char('Vertical Capture BG')
-    cfg_bg_frame_square = fields.Char('Square Capture BG')
-
-    # App Config - Background Images (Preview & Print)
-    cfg_bg_preview_horizontal = fields.Char('Horizontal Preview BG')
-    cfg_bg_preview_vertical = fields.Char('Vertical Preview BG')
-    cfg_bg_print = fields.Char('Print Screen BG')
-
-    # App Config - Button/Icon Images
-    cfg_btn_back = fields.Char('Back Button Icon')
-    cfg_btn_home = fields.Char('Home Button Icon')
-    cfg_btn_next = fields.Char('Next Button Icon')
-    cfg_btn_prev = fields.Char('Previous Button Icon')
-    cfg_icon_arrow_left = fields.Char('Arrow Left Icon')
-
-    # App Config - Capture Mode Icons
-    cfg_icon_auto_capture = fields.Char('Auto Capture Icon')
-    cfg_icon_remote_capture = fields.Char('Remote Capture Icon')
-
-    # App Config - Camera Labels
-    cfg_camera_label_time = fields.Char('Camera Time Label')
-    cfg_camera_label_quantity = fields.Char('Camera Quantity Label')
-
-    # App Config - Payment Notice
-    cfg_content_payment_notice = fields.Char('Payment Notice Content')
-
-    # App Config - Ads
-    cfg_url_ads = fields.Char('Advertisement URL')
-
-    # App Config - Theme
+    # Images (exact order from React source)
+    cfg_btn_back = fields.Image('Back Button Icon', attachment=True)
+    cfg_bg_main = fields.Image('Home Screen BG', attachment=True)
+    cfg_bg_layout = fields.Image('Layout Screen BG', attachment=True)
+    cfg_bg_theme = fields.Image('Theme Screen BG', attachment=True)
     cfg_is_hide_label_theme = fields.Boolean('Hide Theme Labels', default=False)
+    cfg_cell_theme_font_color = fields.Char('Theme Cell Font Color', default='#FFFFFF')
+    cfg_bg_frame = fields.Image('Frame Screen BG', attachment=True)
+    cfg_btn_prev = fields.Image('Previous Button Icon', attachment=True)
+    cfg_btn_next = fields.Image('Next Button Icon', attachment=True)
+    cfg_bg_quantity = fields.Image('Quantity Screen BG', attachment=True)
+    cfg_icon_arrow_left = fields.Image('Arrow Right Icon', attachment=True)
+    cfg_bg_payment = fields.Image('Payment Screen BG', attachment=True)
+    cfg_bg_payment_notice = fields.Image('Payment Notice Screen BG', attachment=True)
+    cfg_content_payment_notice = fields.Image('Payment Notice Content', attachment=True)
+    cfg_bg_camera_mode = fields.Image('Camera Mode Screen BG', attachment=True)
+    cfg_icon_auto_capture = fields.Image('Auto Capture Icon', attachment=True)
+    cfg_icon_remote_capture = fields.Image('Remote Capture Icon', attachment=True)
+    cfg_bg_frame_horizontal = fields.Image('Horizontal Capture BG', attachment=True)
+    cfg_bg_frame_vertical = fields.Image('Vertical Capture BG', attachment=True)
+    cfg_camera_label_time = fields.Image('Camera Time Label', attachment=True)
+    cfg_camera_label_quantity = fields.Image('Camera Quantity Label', attachment=True)
+    cfg_bg_frame_square = fields.Image('Square Capture BG', attachment=True)
+    cfg_bg_preview_horizontal = fields.Image('Horizontal Preview BG', attachment=True)
+    cfg_bg_preview_vertical = fields.Image('Vertical Preview BG', attachment=True)
+    cfg_bg_print = fields.Image('Print Screen BG', attachment=True)
+    cfg_btn_home = fields.Image('Home Button Icon', attachment=True)
+    cfg_bg_popup = fields.Image('Popup BG', attachment=True)
+    cfg_bg_ads = fields.Image('Ads Screen BG', attachment=True)
+    cfg_url_ads = fields.Char('Advertisement URL')
 
     # Computed JSON for API
     config_photo_app = fields.Json(
@@ -263,68 +245,69 @@ class IsdPhotobooth(models.Model):
         ('unique_code', 'UNIQUE(code)', 'Photo Booth code must be unique.'),
     ]
 
-    # Mapping: config JSON key -> Odoo field name
-    _CONFIG_FIELD_MAP = {
+    # Mapping: config JSON key -> Odoo field name (text/bool fields only)
+    _CONFIG_TEXT_MAP = {
         'is_display_layout_description': 'cfg_is_display_layout_description',
         'color_button': 'cfg_color_button',
         'bg_button': 'cfg_bg_button',
         'cell_theme_font_color': 'cfg_cell_theme_font_color',
+        'is_hide_label_theme': 'cfg_is_hide_label_theme',
+        'url_ads': 'cfg_url_ads',
+    }
+
+    # Mapping: config JSON key -> Odoo field name (image fields)
+    _CONFIG_IMAGE_MAP = {
+        'btn_back': 'cfg_btn_back',
         'bg_main': 'cfg_bg_main',
         'bg_layout': 'cfg_bg_layout',
         'bg_theme': 'cfg_bg_theme',
+        'bg_frame': 'cfg_bg_frame',
+        'btn_prev': 'cfg_btn_prev',
+        'btn_next': 'cfg_btn_next',
         'bg_quantity': 'cfg_bg_quantity',
+        'icon_arrow_left': 'cfg_icon_arrow_left',
         'bg_payment': 'cfg_bg_payment',
         'bg_payment_notice': 'cfg_bg_payment_notice',
-        'bg_popup': 'cfg_bg_popup',
-        'bg_ads': 'cfg_bg_ads',
+        'content_payment_notice': 'cfg_content_payment_notice',
         'bg_camera_mode': 'cfg_bg_camera_mode',
-        'bg_frame': 'cfg_bg_frame',
+        'icon_auto_capture': 'cfg_icon_auto_capture',
+        'icon_remote_capture': 'cfg_icon_remote_capture',
         'bg_frame_horizontal': 'cfg_bg_frame_horizontal',
         'bg_frame_vertical': 'cfg_bg_frame_vertical',
+        'camera_label_time': 'cfg_camera_label_time',
+        'camera_label_quantity': 'cfg_camera_label_quantity',
         'bg_frame_square': 'cfg_bg_frame_square',
         'bg_preview_horizontal': 'cfg_bg_preview_horizontal',
         'bg_preview_vertical': 'cfg_bg_preview_vertical',
         'bg_print': 'cfg_bg_print',
-        'btn_back': 'cfg_btn_back',
         'btn_home': 'cfg_btn_home',
-        'btn_next': 'cfg_btn_next',
-        'btn_prev': 'cfg_btn_prev',
-        'icon_arrow_left': 'cfg_icon_arrow_left',
-        'icon_auto_capture': 'cfg_icon_auto_capture',
-        'icon_remote_capture': 'cfg_icon_remote_capture',
-        'camera_label_time': 'cfg_camera_label_time',
-        'camera_label_quantity': 'cfg_camera_label_quantity',
-        'content_payment_notice': 'cfg_content_payment_notice',
-        'url_ads': 'cfg_url_ads',
-        'is_hide_label_theme': 'cfg_is_hide_label_theme',
+        'bg_popup': 'cfg_bg_popup',
+        'bg_ads': 'cfg_bg_ads',
     }
 
     _BOOL_CONFIG_KEYS = {'is_display_layout_description', 'is_hide_label_theme'}
 
     @api.depends(
-        'cfg_is_display_layout_description',
-        'cfg_payment_method_id',
-        'cfg_branch',
+        'cfg_is_display_layout_description', 'cfg_is_hide_label_theme',
+        'cfg_payment_method_id', 'cfg_branch',
         'cfg_color_button', 'cfg_bg_button', 'cfg_cell_theme_font_color',
-        'cfg_bg_main', 'cfg_bg_layout', 'cfg_bg_theme', 'cfg_bg_quantity',
-        'cfg_bg_payment', 'cfg_bg_payment_notice', 'cfg_bg_popup', 'cfg_bg_ads',
-        'cfg_bg_camera_mode', 'cfg_bg_frame', 'cfg_bg_frame_horizontal',
-        'cfg_bg_frame_vertical', 'cfg_bg_frame_square',
-        'cfg_bg_preview_horizontal', 'cfg_bg_preview_vertical', 'cfg_bg_print',
-        'cfg_btn_back', 'cfg_btn_home', 'cfg_btn_next', 'cfg_btn_prev',
-        'cfg_icon_arrow_left', 'cfg_icon_auto_capture', 'cfg_icon_remote_capture',
-        'cfg_camera_label_time', 'cfg_camera_label_quantity',
-        'cfg_content_payment_notice', 'cfg_url_ads', 'cfg_is_hide_label_theme',
+        'cfg_url_ads',
     )
     def _compute_config_photo_app(self):
+        base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url', '')
         for record in self:
             config = {}
-            for key, field_name in self._CONFIG_FIELD_MAP.items():
+            # Text/bool fields
+            for key, field_name in self._CONFIG_TEXT_MAP.items():
                 val = record[field_name]
                 if key in self._BOOL_CONFIG_KEYS:
                     config[key] = 'true' if val else 'false'
                 elif val:
                     config[key] = val
+            # Image fields -> URLs
+            for key, field_name in self._CONFIG_IMAGE_MAP.items():
+                if record[field_name]:
+                    config[key] = f"{base_url}/web/image/isd.photobooth/{record.id}/{field_name}"
             # Bank info from linked payment method
             pm = record.cfg_payment_method_id
             if pm:

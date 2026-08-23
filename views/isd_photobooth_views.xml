@@ -52,8 +52,6 @@
                         <group string="General">
                             <field name="group_id"/>
                             <field name="max_prints"/>
-                            <field name="font_color" widget="color"/>
-                            <field name="background_url"/>
                             <field name="active"/>
                         </group>
                         <group string="Payment &amp; Download">
@@ -98,13 +96,10 @@
                             </field>
                         </page>
                         <page string="App Config" name="app_config">
-                            <!-- Layout & Description -->
-                            <group string="Layout &amp; Description">
+                            <!-- Layout & Theme Settings -->
+                            <group string="Layout &amp; Theme Settings">
                                 <group>
                                     <field name="cfg_is_display_layout_description"/>
-                                </group>
-                                <group>
-                                    <field name="cfg_is_hide_label_theme"/>
                                 </group>
                             </group>
 
@@ -114,101 +109,67 @@
                                     <field name="cfg_payment_method_id"/>
                                 </group>
                                 <group>
-                                    <field name="cfg_branch" placeholder="e.g. Huế - Máy 1"/>
+                                    <field name="cfg_branch"/>
                                 </group>
                             </group>
 
-                            <!-- UI Colors -->
-                            <group string="UI Colors">
+                            <!-- UI Customization -->
+                            <group string="UI Customization">
                                 <group>
                                     <field name="cfg_color_button" widget="color"/>
                                     <field name="cfg_bg_button" widget="color"/>
                                 </group>
+                            </group>
+
+                            <separator string="UI Images"/>
+
+                            <group>
                                 <group>
+                                    <field name="cfg_btn_back" widget="image"/>
+                                    <field name="cfg_bg_main" widget="image"/>
+                                    <field name="cfg_bg_layout" widget="image"/>
+                                    <field name="cfg_bg_theme" widget="image"/>
+                                </group>
+                                <group>
+                                    <field name="cfg_is_hide_label_theme"/>
                                     <field name="cfg_cell_theme_font_color" widget="color"/>
                                 </group>
                             </group>
 
-                            <!-- Background Images - Main Screens -->
-                            <group string="Background Images - Main Screens">
+                            <group>
                                 <group>
-                                    <field name="cfg_bg_main" placeholder="URL"/>
-                                    <field name="cfg_bg_layout" placeholder="URL"/>
-                                    <field name="cfg_bg_theme" placeholder="URL"/>
-                                    <field name="cfg_bg_quantity" placeholder="URL"/>
+                                    <field name="cfg_bg_frame" widget="image"/>
+                                    <field name="cfg_btn_prev" widget="image"/>
+                                    <field name="cfg_btn_next" widget="image"/>
+                                    <field name="cfg_bg_quantity" widget="image"/>
+                                    <field name="cfg_icon_arrow_left" widget="image"/>
+                                    <field name="cfg_bg_payment" widget="image"/>
+                                    <field name="cfg_bg_payment_notice" widget="image"/>
+                                    <field name="cfg_content_payment_notice" widget="image"/>
                                 </group>
                                 <group>
-                                    <field name="cfg_bg_payment" placeholder="URL"/>
-                                    <field name="cfg_bg_payment_notice" placeholder="URL"/>
-                                    <field name="cfg_bg_popup" placeholder="URL"/>
-                                    <field name="cfg_bg_ads" placeholder="URL"/>
-                                </group>
-                            </group>
-
-                            <!-- Background Images - Camera Screens -->
-                            <group string="Background Images - Camera Screens">
-                                <group>
-                                    <field name="cfg_bg_camera_mode" placeholder="URL"/>
-                                    <field name="cfg_bg_frame" placeholder="URL"/>
-                                    <field name="cfg_bg_frame_horizontal" placeholder="URL"/>
-                                </group>
-                                <group>
-                                    <field name="cfg_bg_frame_vertical" placeholder="URL"/>
-                                    <field name="cfg_bg_frame_square" placeholder="URL"/>
+                                    <field name="cfg_bg_camera_mode" widget="image"/>
+                                    <field name="cfg_icon_auto_capture" widget="image"/>
+                                    <field name="cfg_icon_remote_capture" widget="image"/>
+                                    <field name="cfg_bg_frame_horizontal" widget="image"/>
+                                    <field name="cfg_bg_frame_vertical" widget="image"/>
+                                    <field name="cfg_camera_label_time" widget="image"/>
+                                    <field name="cfg_camera_label_quantity" widget="image"/>
+                                    <field name="cfg_bg_frame_square" widget="image"/>
                                 </group>
                             </group>
 
-                            <!-- Background Images - Preview & Print -->
-                            <group string="Background Images - Preview &amp; Print">
+                            <group>
                                 <group>
-                                    <field name="cfg_bg_preview_horizontal" placeholder="URL"/>
-                                    <field name="cfg_bg_preview_vertical" placeholder="URL"/>
+                                    <field name="cfg_bg_preview_horizontal" widget="image"/>
+                                    <field name="cfg_bg_preview_vertical" widget="image"/>
+                                    <field name="cfg_bg_print" widget="image"/>
+                                    <field name="cfg_btn_home" widget="image"/>
                                 </group>
                                 <group>
-                                    <field name="cfg_bg_print" placeholder="URL"/>
-                                </group>
-                            </group>
-
-                            <!-- Button/Icon Images -->
-                            <group string="Button &amp; Icon Images">
-                                <group>
-                                    <field name="cfg_btn_back" placeholder="URL"/>
-                                    <field name="cfg_btn_home" placeholder="URL"/>
-                                    <field name="cfg_btn_next" placeholder="URL"/>
-                                </group>
-                                <group>
-                                    <field name="cfg_btn_prev" placeholder="URL"/>
-                                    <field name="cfg_icon_arrow_left" placeholder="URL"/>
-                                </group>
-                            </group>
-
-                            <!-- Capture Mode Icons -->
-                            <group string="Capture Mode Icons">
-                                <group>
-                                    <field name="cfg_icon_auto_capture" placeholder="URL"/>
-                                </group>
-                                <group>
-                                    <field name="cfg_icon_remote_capture" placeholder="URL"/>
-                                </group>
-                            </group>
-
-                            <!-- Camera Labels -->
-                            <group string="Camera Labels">
-                                <group>
-                                    <field name="cfg_camera_label_time" placeholder="URL"/>
-                                </group>
-                                <group>
-                                    <field name="cfg_camera_label_quantity" placeholder="URL"/>
-                                </group>
-                            </group>
-
-                            <!-- Payment Notice & Ads -->
-                            <group string="Payment Notice &amp; Ads">
-                                <group>
-                                    <field name="cfg_content_payment_notice" placeholder="URL"/>
-                                </group>
-                                <group>
-                                    <field name="cfg_url_ads" placeholder="URL" widget="url"/>
+                                    <field name="cfg_bg_popup" widget="image"/>
+                                    <field name="cfg_bg_ads" widget="image"/>
+                                    <field name="cfg_url_ads" widget="url"/>
                                 </group>
                             </group>
                         </page>

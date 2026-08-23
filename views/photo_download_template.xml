@@ -98,13 +98,17 @@
 
                     .error-page, .loading-page {
                         display: flex;
+                        flex-direction: column;
                         justify-content: center;
                         align-items: center;
                         min-height: 100vh;
                         text-align: center;
                         padding: 20px;
                     }
-                    .error-page { color: red; font-size: 18px; }
+                    .error-page { color: #666; font-size: 18px; background: #f5f5f5; }
+                    .error-icon { font-size: 64px; margin-bottom: 16px; }
+                    .error-title { font-size: 18px; font-weight: bold; color: #333; margin-bottom: 8px; }
+                    .error-sub { font-size: 14px; color: #999; max-width: 280px; }
 
                     /* Modal overlay */
                     .modal-overlay {
@@ -145,7 +149,18 @@
             <body>
                 <t t-if="error">
                     <div class="error-page">
-                        <span t-esc="error"/>
+                        <div class="error-icon">
+                            <t t-if="error_type == 'expired'">⏰</t>
+                            <t t-elif="error_type == 'not_found'">🔍</t>
+                            <t t-else="">⚠️</t>
+                        </div>
+                        <p class="error-title" t-esc="error"/>
+                        <t t-if="error_type == 'expired'">
+                            <p class="error-sub">Hình ảnh và video chỉ được lưu trữ trong 3 ngày kể từ khi chụp.</p>
+                        </t>
+                        <t t-if="error_type == 'not_found'">
+                            <p class="error-sub">Vui lòng kiểm tra lại mã QR hoặc liên hệ nhân viên.</p>
+                        </t>
                     </div>
                 </t>
 
@@ -154,8 +169,28 @@
                     <div class="modal-overlay" id="browserModal">
                         <div class="modal-box font-ttnorms">
                             <h3>Hướng dẫn tải ảnh/video</h3>
-                            <div id="modalInstructions"></div>
-                            <button class="btn-copy" onclick="copyLink()">Copy Link</button>
+                            <div id="modalIos" style="display:none;">
+                                <p>Vui lòng mở link này bằng <strong style="color:#1890ff">Safari</strong> hoặc <strong style="color:#1890ff">Chrome</strong> để tải ảnh/video:</p>
+                                <ol>
+                                    <li>Nhấn 3 chấm (...) ở góc phải trên → Chọn <strong>"Mở bằng Safari"</strong></li>
+                                    <li>Hoặc dùng <strong>Camera</strong> quét lại mã QR trên tay</li>
+                                </ol>
+                            </div>
+                            <div id="modalAndroid" style="display:none;">
+                                <p>Vui lòng mở link này bằng <strong style="color:#1890ff">Chrome</strong> để tải ảnh/video:</p>
+                                <ol>
+                                    <li>Nhấn 3 chấm (⋮) ở góc phải trên → Chọn <strong>"Mở bằng Chrome"</strong></li>
+                                    <li>Hoặc dùng <strong>Camera</strong> quét lại mã QR trên tay</li>
+                                </ol>
+                            </div>
+                            <div id="modalOther" style="display:none;">
+                                <p>Vui lòng mở link này bằng trình duyệt để tải ảnh/video:</p>
+                                <ol>
+                                    <li>Nhấn 3 chấm ở góc phải trên → Chọn <strong>"Mở bằng trình duyệt"</strong></li>
+                                    <li>Hoặc dùng Camera quét lại mã QR</li>
+                                </ol>
+                            </div>
+                            <button class="btn-copy" id="btnCopyLink">Copy Link</button>
                         </div>
                     </div>
 
@@ -179,9 +214,10 @@
                                     <h3>Hình Ảnh</h3>
                                     <t t-foreach="png_images" t-as="img_url">
                                         <div class="media-item">
-                                            <img t-att-src="img_url" t-att-alt="'Image ' + str(img_url_index + 1)"/>
-                                            <button class="btn-download"
-                                                    t-att-onclick="'downloadFile(\\'' + img_url + '\\', \\'image_' + str(img_url_index + 1) + '.png\\')'">
+                                            <img t-att-src="img_url" t-attf-alt="Image #{img_url_index + 1}" loading="lazy"/>
+                                            <button class="btn-download js-download"
+                                                    t-att-data-url="img_url"
+                                                    t-attf-data-filename="image_#{img_url_index + 1}.png">
                                                 ⬇ Tải hình ảnh
                                             </button>
                                         </div>
@@ -193,9 +229,10 @@
                                     <h3>Hình Ảnh Gốc</h3>
                                     <t t-foreach="jpg_images" t-as="img_url">
                                         <div class="media-item">
-                                            <img t-att-src="img_url" t-att-alt="'Original ' + str(img_url_index + 1)"/>
-                                            <button class="btn-download"
-                                                    t-att-onclick="'downloadFile(\\'' + img_url + '\\', \\'original_image_' + str(img_url_index + 1) + '.jpg\\')'">
+                                            <img t-att-src="img_url" t-attf-alt="Original #{img_url_index + 1}" loading="lazy"/>
+                                            <button class="btn-download js-download"
+                                                    t-att-data-url="img_url"
+                                                    t-attf-data-filename="original_#{img_url_index + 1}.jpg">
                                                 ⬇ Tải hình ảnh gốc
                                             </button>
                                         </div>
@@ -211,8 +248,9 @@
                                                t-att-src="video_url"
                                                style="width:100%; max-width:400px; background:#000;">
                                         </video>
-                                        <button class="btn-download"
-                                                t-att-onclick="'downloadFile(\\'' + video_url + '\\', \\'video.mp4\\')'">
+                                        <button class="btn-download js-download"
+                                                t-att-data-url="video_url"
+                                                data-filename="video.mp4">
                                             ⬇ Tải Video của bạn
                                         </button>
                                     </div>
@@ -227,41 +265,23 @@
                         </div>
                     </div>
 
-                    <script>
+                    <script type="text/javascript">
                         function isRestrictedWebView() {
                             var ua = navigator.userAgent.toLowerCase();
-                            return ua.indexOf('zalo') > -1 || ua.indexOf('fbav') > -1 || ua.indexOf('fban') > -1;
-                        }
-
-                        function getDevicePlatform() {
-                            var ua = navigator.userAgent.toLowerCase();
-                            if (/iphone|ipad|ipod/.test(ua)) return 'ios';
-                            if (/android/.test(ua)) return 'android';
-                            return 'other';
+                            return ua.indexOf('zalo') !== -1 || ua.indexOf('fbav') !== -1 || ua.indexOf('fban') !== -1;
                         }
 
                         function showBrowserModal() {
-                            var modal = document.getElementById('browserModal');
-                            var instructions = document.getElementById('modalInstructions');
-                            var platform = getDevicePlatform();
-                            var html = '';
+                            var ua = navigator.userAgent.toLowerCase();
+                            var platform = 'other';
+                            if (/iphone|ipad|ipod/.test(ua)) platform = 'ios';
+                            else if (/android/.test(ua)) platform = 'android';
 
-                            if (platform === 'ios') {
-                                html = '<p>Vui lòng mở link này bằng <strong style="color:#1890ff">Safari</strong> hoặc <strong style="color:#1890ff">Chrome</strong> để tải ảnh/video:</p>' +
-                                    '<ol><li>Nhấn 3 chấm (...) ở góc phải trên → Chọn <strong>"Mở bằng Safari"</strong></li>' +
-                                    '<li>Hoặc dùng <strong>Camera</strong> quét lại mã QR trên tay</li></ol>';
-                            } else if (platform === 'android') {
-                                html = '<p>Vui lòng mở link này bằng <strong style="color:#1890ff">Chrome</strong> để tải ảnh/video:</p>' +
-                                    '<ol><li>Nhấn 3 chấm (⋮) ở góc phải trên → Chọn <strong>"Mở bằng Chrome"</strong></li>' +
-                                    '<li>Hoặc dùng <strong>Camera</strong> quét lại mã QR trên tay</li></ol>';
-                            } else {
-                                html = '<p>Vui lòng mở link này bằng trình duyệt để tải ảnh/video:</p>' +
-                                    '<ol><li>Nhấn 3 chấm ở góc phải trên → Chọn <strong>"Mở bằng trình duyệt"</strong></li>' +
-                                    '<li>Hoặc dùng Camera quét lại mã QR</li></ol>';
-                            }
+                            var ids = {ios: 'modalIos', android: 'modalAndroid', other: 'modalOther'};
+                            var el = document.getElementById(ids[platform]);
+                            if (el) el.style.display = 'block';
 
-                            instructions.innerHTML = html;
-                            modal.classList.add('active');
+                            document.getElementById('browserModal').classList.add('active');
                         }
 
                         function copyLink() {
@@ -283,7 +303,10 @@
                                 return;
                             }
                             fetch(url, { headers: { 'Cache-Control': 'no-cache' } })
-                                .then(function(res) { return res.blob(); })
+                                .then(function(res) {
+                                    if (!res.ok) throw new Error('HTTP ' + res.status);
+                                    return res.blob();
+                                })
                                 .then(function(blob) {
                                     var a = document.createElement('a');
                                     a.href = URL.createObjectURL(blob);
@@ -293,11 +316,24 @@
                                     document.body.removeChild(a);
                                     URL.revokeObjectURL(a.href);
                                 })
-                                .catch(function(err) {
-                                    console.error('Download failed:', err);
+                                .catch(function() {
                                     window.open(url, '_blank');
                                 });
                         }
+
+                        document.addEventListener('DOMContentLoaded', function() {
+                            document.querySelectorAll('.js-download').forEach(function(btn) {
+                                btn.addEventListener('click', function() {
+                                    downloadFile(this.dataset.url, this.dataset.filename);
+                                });
+                            });
+
+                            document.getElementById('btnCopyLink').addEventListener('click', copyLink);
+
+                            if (isRestrictedWebView()) {
+                                showBrowserModal();
+                            }
+                        });
                     </script>
                 </t>
             </body>

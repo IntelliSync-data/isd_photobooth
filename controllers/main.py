@@ -661,7 +661,8 @@ class IsdPhotoboothController(http.Controller):
         """Public photo download page — QR code leads here."""
         if transaction_id == 'example':
             return request.render('isd_photobooth.photo_download_page', {
-                'error': None,
+                'error': False,
+                'error_type': False,
                 'png_images': [
                     'https://picsum.photos/seed/pb1/400/600',
                     'https://picsum.photos/seed/pb2/400/600',
@@ -679,18 +680,21 @@ class IsdPhotoboothController(http.Controller):
         if not txn:
             return request.render('isd_photobooth.photo_download_page', {
                 'error': 'Không tìm thấy giao dịch.',
+                'error_type': 'not_found',
             })
 
         if txn.is_media_expired():
             return request.render('isd_photobooth.photo_download_page', {
                 'error': 'Hình ảnh và video đã hết hạn.',
+                'error_type': 'expired',
             })
 
         medias = txn.medias or []
         png_images, jpg_images, video_url = self._classify_media_urls(medias)
 
         return request.render('isd_photobooth.photo_download_page', {
-            'error': None,
+            'error': False,
+            'error_type': False,
             'png_images': png_images,
             'jpg_images': jpg_images,
             'video_url': video_url,

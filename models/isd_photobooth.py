@@ -168,10 +168,68 @@ class IsdPhotobooth(models.Model):
     )
     last_meta_updated_at = fields.Datetime('Last Meta Updated', readonly=True)
 
-    # App Config
+    # App Config - Layout & Description
+    cfg_is_display_layout_description = fields.Boolean('Display Layout Description', default=False)
+
+    # App Config - Bank Customization
+    cfg_bank_account_name = fields.Char('Bank Name')
+    cfg_bank_account_number = fields.Char('Account Number')
+    cfg_bank_account_prefix = fields.Char('Message Prefix')
+
+    # App Config - UI Colors
+    cfg_color_button = fields.Char('Button Text Color')
+    cfg_bg_button = fields.Char('Button Background Color')
+    cfg_cell_theme_font_color = fields.Char('Theme Cell Font Color', default='#FFFFFF')
+
+    # App Config - Background Images (Main Screens)
+    cfg_bg_main = fields.Char('Home Screen BG')
+    cfg_bg_layout = fields.Char('Layout Screen BG')
+    cfg_bg_theme = fields.Char('Theme Screen BG')
+    cfg_bg_quantity = fields.Char('Quantity Screen BG')
+    cfg_bg_payment = fields.Char('Payment Screen BG')
+    cfg_bg_payment_notice = fields.Char('Payment Notice Screen BG')
+    cfg_bg_popup = fields.Char('Popup BG')
+    cfg_bg_ads = fields.Char('Ads Screen BG')
+
+    # App Config - Background Images (Camera Screens)
+    cfg_bg_camera_mode = fields.Char('Camera Mode Screen BG')
+    cfg_bg_frame = fields.Char('Frame Screen BG')
+    cfg_bg_frame_horizontal = fields.Char('Horizontal Capture BG')
+    cfg_bg_frame_vertical = fields.Char('Vertical Capture BG')
+    cfg_bg_frame_square = fields.Char('Square Capture BG')
+
+    # App Config - Background Images (Preview & Print)
+    cfg_bg_preview_horizontal = fields.Char('Horizontal Preview BG')
+    cfg_bg_preview_vertical = fields.Char('Vertical Preview BG')
+    cfg_bg_print = fields.Char('Print Screen BG')
+
+    # App Config - Button/Icon Images
+    cfg_btn_back = fields.Char('Back Button Icon')
+    cfg_btn_home = fields.Char('Home Button Icon')
+    cfg_btn_next = fields.Char('Next Button Icon')
+    cfg_btn_prev = fields.Char('Previous Button Icon')
+    cfg_icon_arrow_left = fields.Char('Arrow Left Icon')
+
+    # App Config - Capture Mode Icons
+    cfg_icon_auto_capture = fields.Char('Auto Capture Icon')
+    cfg_icon_remote_capture = fields.Char('Remote Capture Icon')
+
+    # App Config - Camera Labels
+    cfg_camera_label_time = fields.Char('Camera Time Label')
+    cfg_camera_label_quantity = fields.Char('Camera Quantity Label')
+
+    # App Config - Payment Notice
+    cfg_content_payment_notice = fields.Char('Payment Notice Content')
+
+    # App Config - Ads
+    cfg_url_ads = fields.Char('Advertisement URL')
+
+    # App Config - Theme
+    cfg_is_hide_label_theme = fields.Boolean('Hide Theme Labels', default=False)
+
+    # Computed JSON for API
     config_photo_app = fields.Json(
-        'App Configuration',
-        help='Full UI theme config: colors, icons, labels, bank info, etc.'
+        'App Configuration', compute='_compute_config_photo_app', store=True,
     )
 
     # Relations
@@ -200,6 +258,72 @@ class IsdPhotobooth(models.Model):
     _sql_constraints = [
         ('unique_code', 'UNIQUE(code)', 'Photo Booth code must be unique.'),
     ]
+
+    # Mapping: config JSON key -> Odoo field name
+    _CONFIG_FIELD_MAP = {
+        'is_display_layout_description': 'cfg_is_display_layout_description',
+        'bank_account_name': 'cfg_bank_account_name',
+        'bank_account_number': 'cfg_bank_account_number',
+        'bank_account_prefix': 'cfg_bank_account_prefix',
+        'color_button': 'cfg_color_button',
+        'bg_button': 'cfg_bg_button',
+        'cell_theme_font_color': 'cfg_cell_theme_font_color',
+        'bg_main': 'cfg_bg_main',
+        'bg_layout': 'cfg_bg_layout',
+        'bg_theme': 'cfg_bg_theme',
+        'bg_quantity': 'cfg_bg_quantity',
+        'bg_payment': 'cfg_bg_payment',
+        'bg_payment_notice': 'cfg_bg_payment_notice',
+        'bg_popup': 'cfg_bg_popup',
+        'bg_ads': 'cfg_bg_ads',
+        'bg_camera_mode': 'cfg_bg_camera_mode',
+        'bg_frame': 'cfg_bg_frame',
+        'bg_frame_horizontal': 'cfg_bg_frame_horizontal',
+        'bg_frame_vertical': 'cfg_bg_frame_vertical',
+        'bg_frame_square': 'cfg_bg_frame_square',
+        'bg_preview_horizontal': 'cfg_bg_preview_horizontal',
+        'bg_preview_vertical': 'cfg_bg_preview_vertical',
+        'bg_print': 'cfg_bg_print',
+        'btn_back': 'cfg_btn_back',
+        'btn_home': 'cfg_btn_home',
+        'btn_next': 'cfg_btn_next',
+        'btn_prev': 'cfg_btn_prev',
+        'icon_arrow_left': 'cfg_icon_arrow_left',
+        'icon_auto_capture': 'cfg_icon_auto_capture',
+        'icon_remote_capture': 'cfg_icon_remote_capture',
+        'camera_label_time': 'cfg_camera_label_time',
+        'camera_label_quantity': 'cfg_camera_label_quantity',
+        'content_payment_notice': 'cfg_content_payment_notice',
+        'url_ads': 'cfg_url_ads',
+        'is_hide_label_theme': 'cfg_is_hide_label_theme',
+    }
+
+    _BOOL_CONFIG_KEYS = {'is_display_layout_description', 'is_hide_label_theme'}
+
+    @api.depends(
+        'cfg_is_display_layout_description', 'cfg_bank_account_name',
+        'cfg_bank_account_number', 'cfg_bank_account_prefix',
+        'cfg_color_button', 'cfg_bg_button', 'cfg_cell_theme_font_color',
+        'cfg_bg_main', 'cfg_bg_layout', 'cfg_bg_theme', 'cfg_bg_quantity',
+        'cfg_bg_payment', 'cfg_bg_payment_notice', 'cfg_bg_popup', 'cfg_bg_ads',
+        'cfg_bg_camera_mode', 'cfg_bg_frame', 'cfg_bg_frame_horizontal',
+        'cfg_bg_frame_vertical', 'cfg_bg_frame_square',
+        'cfg_bg_preview_horizontal', 'cfg_bg_preview_vertical', 'cfg_bg_print',
+        'cfg_btn_back', 'cfg_btn_home', 'cfg_btn_next', 'cfg_btn_prev',
+        'cfg_icon_arrow_left', 'cfg_icon_auto_capture', 'cfg_icon_remote_capture',
+        'cfg_camera_label_time', 'cfg_camera_label_quantity',
+        'cfg_content_payment_notice', 'cfg_url_ads', 'cfg_is_hide_label_theme',
+    )
+    def _compute_config_photo_app(self):
+        for record in self:
+            config = {}
+            for key, field_name in self._CONFIG_FIELD_MAP.items():
+                val = record[field_name]
+                if key in self._BOOL_CONFIG_KEYS:
+                    config[key] = 'true' if val else 'false'
+                elif val:
+                    config[key] = val
+            record.config_photo_app = config
 
     @api.model_create_multi
     def create(self, vals_list):

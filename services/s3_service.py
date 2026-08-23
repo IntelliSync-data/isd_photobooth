@@ -37,18 +37,28 @@ class PhotoboothS3Service:
         endpoint_url = _p(self.env, 'endpoint_url')
         use_ssl = _p(self.env, 'use_ssl', 'True') == 'True'
 
+        config_kwargs = {
+            'signature_version': 's3v4',
+            's3': {
+                'payload_signing_enabled': False,
+                'addressing_style': 'path',
+            },
+            'connect_timeout': 60,
+            'read_timeout': 300,
+            'retries': {'max_attempts': 5},
+        }
+        try:
+            config_kwargs['request_checksum_calculation'] = 'when_required'
+            config_kwargs['response_checksum_validation'] = 'when_required'
+        except Exception:
+            pass
+
         kwargs = {
             'aws_access_key_id': _p(self.env, 'access_key'),
             'aws_secret_access_key': _p(self.env, 'secret_key'),
             'region_name': _p(self.env, 'region'),
             'use_ssl': use_ssl,
-            'config': BotoConfig(
-                signature_version='s3v4',
-                s3={'payload_signing_enabled': False},
-                connect_timeout=60,
-                read_timeout=300,
-                retries={'max_attempts': 5},
-            ),
+            'config': BotoConfig(**config_kwargs),
         }
         if endpoint_url:
             kwargs['endpoint_url'] = endpoint_url

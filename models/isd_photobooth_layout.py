@@ -35,7 +35,12 @@ class IsdPhotoboothLayout(models.Model):
     ], string='Layout Type')
 
     bg_color = fields.Json('Background Colors', help='List of hex color codes')
-    paper_size = fields.Char('Paper Size', help='e.g. 4x6, 5x7')
+    paper_size = fields.Selection([
+        ('6x4', '6x4 (152mm x 102mm)'),
+        ('4x6', '4x6 (102mm x 152mm)'),
+        ('6x2', '6x2 (152mm x 51mm)'),
+        ('2x6', '2x6 (51mm x 152mm)'),
+    ], string='Paper Size')
     active = fields.Boolean('Active', default=True)
 
     bg_layout_ids = fields.Many2many(

@@ -6,7 +6,7 @@
     'author': 'IntelliSync Data',
     'website': 'https://intellisyncdata.com',
     'license': 'LGPL-3',
-    'depends': ['base', 'base_setup', 'mail'],
+    'depends': ['base', 'base_setup', 'mail', 'isd_payment'],
     'data': [
         'security/isd_photobooth_security.xml',
         'security/ir.model.access.csv',

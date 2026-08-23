@@ -171,10 +171,14 @@ class IsdPhotobooth(models.Model):
     # App Config - Layout & Description
     cfg_is_display_layout_description = fields.Boolean('Display Layout Description', default=False)
 
-    # App Config - Bank Customization
-    cfg_bank_account_name = fields.Char('Bank Name')
-    cfg_bank_account_number = fields.Char('Account Number')
-    cfg_bank_account_prefix = fields.Char('Message Prefix')
+    # App Config - Bank Customization (linked to isd_payment)
+    cfg_payment_method_id = fields.Many2one(
+        'isd.payment.method', string='Payment Method',
+        help='Link to payment method for bank info (name, account number, prefix)',
+    )
+    cfg_branch = fields.Char(
+        'Branch', help='Branch/machine identifier sent to payment API (e.g. "Huế - Máy 1")',
+    )
 
     # App Config - UI Colors
     cfg_color_button = fields.Char('Button Text Color')
@@ -262,9 +266,6 @@ class IsdPhotobooth(models.Model):
     # Mapping: config JSON key -> Odoo field name
     _CONFIG_FIELD_MAP = {
         'is_display_layout_description': 'cfg_is_display_layout_description',
-        'bank_account_name': 'cfg_bank_account_name',
-        'bank_account_number': 'cfg_bank_account_number',
-        'bank_account_prefix': 'cfg_bank_account_prefix',
         'color_button': 'cfg_color_button',
         'bg_button': 'cfg_bg_button',
         'cell_theme_font_color': 'cfg_cell_theme_font_color',
@@ -301,8 +302,11 @@ class IsdPhotobooth(models.Model):
     _BOOL_CONFIG_KEYS = {'is_display_layout_description', 'is_hide_label_theme'}
 
     @api.depends(
-        'cfg_is_display_layout_description', 'cfg_bank_account_name',
-        'cfg_bank_account_number', 'cfg_bank_account_prefix',
+        'cfg_is_display_layout_description',
+        'cfg_payment_method_id', 'cfg_payment_method_id.name',
+        'cfg_payment_method_id.provider_account_id', 'cfg_payment_method_id.prefix',
+        'cfg_payment_method_id.acb_beneficiary_name', 'cfg_payment_method_id.acb_account_number',
+        'cfg_branch',
         'cfg_color_button', 'cfg_bg_button', 'cfg_cell_theme_font_color',
         'cfg_bg_main', 'cfg_bg_layout', 'cfg_bg_theme', 'cfg_bg_quantity',
         'cfg_bg_payment', 'cfg_bg_payment_notice', 'cfg_bg_popup', 'cfg_bg_ads',
@@ -323,6 +327,15 @@ class IsdPhotobooth(models.Model):
                     config[key] = 'true' if val else 'false'
                 elif val:
                     config[key] = val
+            # Bank info from linked payment method
+            pm = record.cfg_payment_method_id
+            if pm:
+                config['bank_account_name'] = pm.acb_beneficiary_name or pm.name or ''
+                config['bank_account_number'] = pm.acb_account_number or pm.provider_account_id or ''
+                config['bank_account_prefix'] = pm.prefix or ''
+                config['payment_method_id'] = pm.id
+            if record.cfg_branch:
+                config['branch'] = record.cfg_branch
             record.config_photo_app = config
 
     @api.model_create_multi

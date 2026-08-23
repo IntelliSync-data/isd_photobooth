@@ -111,11 +111,10 @@
                             <!-- Bank Customization -->
                             <group string="Bank Customization">
                                 <group>
-                                    <field name="cfg_bank_account_name"/>
-                                    <field name="cfg_bank_account_number"/>
+                                    <field name="cfg_payment_method_id"/>
                                 </group>
                                 <group>
-                                    <field name="cfg_bank_account_prefix"/>
+                                    <field name="cfg_branch" placeholder="e.g. Huế - Máy 1"/>
                                 </group>
                             </group>
 

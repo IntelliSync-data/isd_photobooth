@@ -44,6 +44,7 @@ class PhotoboothS3Service:
             'use_ssl': use_ssl,
             'config': BotoConfig(
                 signature_version='s3v4',
+                s3={'payload_signing_enabled': False},
                 connect_timeout=60,
                 read_timeout=300,
                 retries={'max_attempts': 5},
@@ -94,6 +95,7 @@ class PhotoboothS3Service:
         Returns:
             str: Public URL of the uploaded file.
         """
+        import io
         client = self._get_client()
         bucket = self._get_bucket()
 
@@ -102,20 +104,17 @@ class PhotoboothS3Service:
         else:
             key = self._generate_key('media', file_name)
 
-        extra = {
-            'Bucket': bucket,
-            'Key': key,
-            'Body': file_data,
+        extra_args = {
             'ContentType': mime_type,
             'ACL': 'public-read',
         }
 
         if expires_in:
             from datetime import datetime, timedelta, timezone
-            extra['Expires'] = datetime.now(timezone.utc) + timedelta(seconds=expires_in)
-            extra['Tagging'] = 'auto-expire=true'
+            extra_args['Expires'] = datetime.now(timezone.utc) + timedelta(seconds=expires_in)
+            extra_args['Tagging'] = 'auto-expire=true'
 
-        client.put_object(**extra)
+        client.upload_fileobj(io.BytesIO(file_data), bucket, key, ExtraArgs=extra_args)
         url = self._build_url(key)
         _logger.info(
             "Photobooth S3: uploaded %s (%s, %d bytes, expires_in=%s)",

@@ -303,9 +303,7 @@ class IsdPhotobooth(models.Model):
 
     @api.depends(
         'cfg_is_display_layout_description',
-        'cfg_payment_method_id', 'cfg_payment_method_id.name',
-        'cfg_payment_method_id.provider_account_id', 'cfg_payment_method_id.prefix',
-        'cfg_payment_method_id.acb_beneficiary_name', 'cfg_payment_method_id.acb_account_number',
+        'cfg_payment_method_id',
         'cfg_branch',
         'cfg_color_button', 'cfg_bg_button', 'cfg_cell_theme_font_color',
         'cfg_bg_main', 'cfg_bg_layout', 'cfg_bg_theme', 'cfg_bg_quantity',

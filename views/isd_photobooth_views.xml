@@ -69,6 +69,7 @@
                         <page string="Layouts" name="layouts">
                             <field name="layout_ids">
                                 <list>
+                                    <field name="image_url" widget="image_url" options="{'size': [60, 60]}"/>
                                     <field name="name"/>
                                     <field name="frame_type" widget="badge"/>
                                     <field name="layout_type" widget="badge"/>
@@ -79,7 +80,7 @@
                         <page string="Themes" name="themes">
                             <field name="theme_ids">
                                 <list>
-                                    <field name="background" widget="image" options="{'size': [60, 60]}"/>
+                                    <field name="background_url" widget="image_url" options="{'size': [60, 60]}"/>
                                     <field name="name"/>
                                 </list>
                             </field>

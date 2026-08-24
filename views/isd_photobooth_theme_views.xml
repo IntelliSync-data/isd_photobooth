@@ -5,7 +5,8 @@
         <field name="model">isd.photobooth.theme</field>
         <field name="arch" type="xml">
             <list string="Themes">
-                <field name="background" widget="image" options="{'size': [60, 60]}"/>
+                <field name="background_url" widget="image_url" options="{'size': [60, 60]}"/>
+                <field name="background" widget="image" options="{'size': [60, 60]}" optional="hide"/>
                 <field name="name"/>
                 <field name="active" widget="boolean_toggle"/>
             </list>
@@ -21,10 +22,9 @@
                     <group>
                         <group>
                             <field name="name"/>
-                            <field name="background" filename="background_filename"
-                                   widget="image" options="{'size': [256, 256]}"/>
+                            <field name="background" filename="background_filename" string="Upload Image"/>
                             <field name="background_filename" invisible="1"/>
-                            <field name="background_url"/>
+                            <field name="background_url" widget="image_url" string="Current Image"/>
                         </group>
                         <group>
                             <field name="active"/>

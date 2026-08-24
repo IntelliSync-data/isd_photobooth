@@ -365,6 +365,7 @@ class IsdPhotobooth(models.Model):
                 mime = mimetypes.guess_type(filename)[0] or 'image/png'
                 url = s3.upload_asset(data, filename, mime)
                 cfg_urls[config_key] = url
+                vals[field_name] = False
                 changed = True
             except Exception:
                 import logging

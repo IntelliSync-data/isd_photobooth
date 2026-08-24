@@ -39,19 +39,10 @@ class PhotoboothS3Service:
 
         config_kwargs = {
             'signature_version': 's3v4',
-            's3': {
-                'payload_signing_enabled': False,
-                'addressing_style': 'path',
-            },
-            'connect_timeout': 60,
+            'connect_timeout': 300,
             'read_timeout': 300,
-            'retries': {'max_attempts': 5},
+            'retries': {'max_attempts': 10, 'mode': 'standard'},
         }
-        try:
-            config_kwargs['request_checksum_calculation'] = 'when_required'
-            config_kwargs['response_checksum_validation'] = 'when_required'
-        except Exception:
-            pass
 
         kwargs = {
             'aws_access_key_id': _p(self.env, 'access_key'),

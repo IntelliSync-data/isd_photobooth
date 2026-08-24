@@ -37,6 +37,7 @@ def upload_binary_fields_to_s3(env, vals, field_map):
 
             url = s3.upload_asset(data, filename, mime)
             vals[url_field] = url
+            vals[binary_field] = False
             _logger.info("S3 auto-upload: %s -> %s", binary_field, url)
         except Exception:
             _logger.exception("S3 auto-upload failed for field %s", binary_field)

@@ -5,7 +5,8 @@
         <field name="model">isd.photobooth.layout</field>
         <field name="arch" type="xml">
             <list string="Layouts">
-                <field name="image" widget="image" options="{'size': [60, 60]}"/>
+                <field name="image_url" widget="image_url" options="{'size': [60, 60]}"/>
+                <field name="image" widget="image" options="{'size': [60, 60]}" optional="hide"/>
                 <field name="name"/>
                 <field name="frame_type" widget="badge"
                        decoration-info="frame_type == '3_2'"
@@ -40,10 +41,9 @@
                             <field name="paper_size"/>
                         </group>
                         <group>
-                            <field name="image" filename="image_filename"
-                                   widget="image" options="{'size': [200, 200]}"/>
+                            <field name="image" filename="image_filename" string="Upload Image"/>
                             <field name="image_filename" invisible="1"/>
-                            <field name="image_url"/>
+                            <field name="image_url" widget="image_url" string="Current Image"/>
                             <field name="active"/>
                         </group>
                     </group>
@@ -57,9 +57,9 @@
                         <page string="Backgrounds" name="backgrounds">
                             <field name="bg_layout_ids">
                                 <list>
-                                    <field name="image" widget="image" options="{'size': [60, 60]}"/>
+                                    <field name="image_url" widget="image_url" options="{'size': [60, 60]}"/>
+                                    <field name="image" widget="image" options="{'size': [60, 60]}" optional="hide"/>
                                     <field name="frame_type" widget="badge"/>
-                                    <field name="image_url"/>
                                 </list>
                             </field>
                         </page>
